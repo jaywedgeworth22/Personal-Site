@@ -1,2 +1,0 @@
-# Static mirror of the live site is populated by the mirror-site GitHub Action.
-# Run the workflow manually from the Actions tab to seed the first full snapshot.
