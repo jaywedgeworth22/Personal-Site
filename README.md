@@ -1,4 +1,4 @@
-# Jay Wedgeworth — Personal/Portfolio
+# Jay Wedgeworth — Personal Portfolio
 
 Canonical repository for the personal portfolio at **[jays.services](https://jays.services)** and **[jaywedgeworth.com](https://jaywedgeworth.com)**.
 
