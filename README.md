@@ -1,6 +1,6 @@
 # Personal-Site
 
-Canonical repository for the personal portfolio at **[jays.services](https://jays.services)** and **[jaywedgeworth.grok.me](https://jaywedgeworth.grok.me)**.
+Canonical repository for the personal portfolio at **[jays.services](https://jays.services)** and **[jaywedgeworth.com](https://jaywedgeworth.com)**.
 
 ## Current status
 
