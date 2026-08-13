@@ -4,7 +4,7 @@ Canonical repository for the personal portfolio at **[jays.services](https://jay
 
 ## Current status
 
-- Live site is deployed on Vercel.
+- Live site is deployed on Vercel by Grok.
 - This repo currently holds a **static snapshot** of the published site (HTML + assets) under `static/`.
 - Original TypeScript/React source is not yet present in this repository. When the real source is available, it should replace or live alongside the snapshot.
 
@@ -27,7 +27,6 @@ Full source backups of related application repositories (Socratic.Trade, Congres
 | Domain | Notes |
 |--------|-------|
 | jays.services | Primary |
-| jaywedgeworth.grok.me | Alias / alternate |
 | jaywedgeworth.com | Historical / redirect target (check) |
 
 ## License
