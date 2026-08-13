@@ -33,6 +33,9 @@ jobs:
             cp -r tmp-mirror/jays.services/* static/ || true
           fi
           rm -rf tmp-mirror
+          
+          # Restore updated app icons from git so they aren't overwritten by outdated live site assets
+          git checkout HEAD -- static/app-icons/
 
       - name: Commit if changed
         run: |
