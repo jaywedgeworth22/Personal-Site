@@ -1,6 +1,6 @@
 # Status
 
-Updated: 2026-08-14 (GROK — onboard landed, PR #1)
+Updated: 2026-08-14 (GROK — doximity short link uses /view)
 
 ## Current state
 
@@ -19,7 +19,8 @@ Updated: 2026-08-14 (GROK — onboard landed, PR #1)
 - Fleet bootstrap files (AGENTS, board, CI, effort-issues-sync).
 - About copy: "Earlier work includes" → "Earlier work included" in the
   snapshot HTML + hashed JS. Mirror workflow preserves that wording.
-- Doximity footer/href in the snapshot now uses the public CV URL.
+- Doximity footer/href and `doximity.jaywedgeworth.com` use the public
+  `/profiles/…/view` URL (not `/cv/…`, which opens edit mode).
 - Social short links on `jaywedgeworth.com` are Cloudflare Single Redirects
   (301) to the profile URLs. Dummy proxied `AAAA 100::` hosts only.
 

@@ -21,6 +21,9 @@ URL, not the public CV.
 - Added dummy proxied `AAAA 100::` for `instagram` and `linkedin`.
 - Added 301 Single Redirects for those two hosts.
 - Retargeted `doximity` to `https://www.doximity.com/cv/jaywedgeworth`.
+  **Superseded the same day:** owner reports `/cv/…` opens edit mode.
+  Live target is now `/profiles/…/view` — see
+  `2026-08-14-doximity-view.md`.
 - Promoted the social profile rules from 302 to 301. Left apex →
   jays.services, `activity`, and `github` at 302.
 - Snapshot footer/JS Doximity href updated to the CV URL.

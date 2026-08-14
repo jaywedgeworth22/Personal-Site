@@ -37,13 +37,13 @@ jobs:
           # Restore updated app icons from git so they aren't overwritten by outdated live site assets
           git checkout HEAD -- static/app-icons/
 
-          # Live Vercel can lag this repo. Keep landed About tense + Doximity CV URL.
+          # Live Vercel can lag this repo. Keep landed About tense + Doximity view URL.
           python3 - <<'PY'
           from pathlib import Path
           old_about = "Earlier work includes "
           new_about = "Earlier work included "
-          old_dox = "https://www.doximity.com/profiles/3cb95815-2fd1-4985-94e5-3d6f932283bf/view"
-          new_dox = "https://www.doximity.com/cv/jaywedgeworth"
+          old_dox = "https://www.doximity.com/cv/jaywedgeworth"
+          new_dox = "https://www.doximity.com/profiles/3cb95815-2fd1-4985-94e5-3d6f932283bf/view"
           root = Path("static")
           if not root.is_dir():
               raise SystemExit(0)
