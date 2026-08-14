@@ -100,7 +100,7 @@ This repo is a **static snapshot**, not a Node app. Do not invent `npm test`.
   not create a second personal-site Vercel project unless the owner asks.
 - `.github/workflows/mirror-site.yml` re-fetches the live site daily. It
   must preserve landed About copy (`Earlier work included`) and the Doximity
-  CV URL or a later run will revert them.
+  `/profiles/…/view` URL or a later run will revert them.
 - Theme default is **light**. Two spaces between sentences in every
   human-facing string.
 
@@ -113,7 +113,7 @@ path.
 
 | Host | Target |
 |------|--------|
-| `doximity.jaywedgeworth.com` | `https://www.doximity.com/cv/jaywedgeworth` |
+| `doximity.jaywedgeworth.com` | `https://www.doximity.com/profiles/3cb95815-2fd1-4985-94e5-3d6f932283bf/view` |
 | `facebook.jaywedgeworth.com` | `https://www.facebook.com/JayWedgeworth` |
 | `fb.jaywedgeworth.com` | `https://www.facebook.com/JayWedgeworth` |
 | `instagram.jaywedgeworth.com` | `https://www.instagram.com/JayWedgeworth/` |
