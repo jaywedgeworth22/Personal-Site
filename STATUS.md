@@ -1,6 +1,6 @@
 # Status
 
-Updated: 2026-08-14 (GROK — fleet onboard + social redirects + About copy)
+Updated: 2026-08-14 (GROK — onboard landed, PR #1)
 
 ## Current state
 
@@ -14,7 +14,7 @@ Updated: 2026-08-14 (GROK — fleet onboard + social redirects + About copy)
   Cloudflare (`x-vercel-id` on https://jays.services). Apex
   `jaywedgeworth.com/` 302s to `https://jays.services/`.
 
-## This turn
+## Landed
 
 - Fleet bootstrap files (AGENTS, board, CI, effort-issues-sync).
 - About copy: "Earlier work includes" → "Earlier work included" in the
