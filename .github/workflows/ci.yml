@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch: {}
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Required fleet and snapshot files
+        run: |
+          test -f README.md
+          test -f AGENTS.md
+          test -f docs/EFFORT-LOG.md
+          test -f static/index.html
+          test -f scripts/sync-effort-issues.py
+          test -f .github/workflows/effort-issues-sync.yml
+
+      - name: About copy uses past tense
+        run: grep -F "Earlier work included" static/index.html
