@@ -1,2 +1,7 @@
 .DS_Store
 .github/.DS_Store
+site/node_modules
+site/.vercel
+site/.tanstack
+site/.output
+*.log
