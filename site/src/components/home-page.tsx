@@ -76,7 +76,7 @@ export function HomePage() {
                       />
                     ) : (
                       <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-[var(--radius-sm)] border border-border bg-bg-subtle text-xs font-semibold tracking-wide text-fg-muted">
-                        FL
+                        {p.key.slice(0, 2).toUpperCase()}
                       </span>
                     )}
                     <h3 className="text-lg font-medium tracking-tight text-fg">{p.name}</h3>
@@ -86,7 +86,9 @@ export function HomePage() {
                     aria-hidden
                   />
                 </div>
-                <p className="mt-3 flex-1 text-sm leading-relaxed text-fg-muted">{p.blurb}</p>
+                <p className="mt-3 flex-1 text-sm leading-relaxed text-fg-muted">
+                  {withDoubleSpaces(p.blurb)}
+                </p>
                 <div className="mt-4 flex flex-wrap gap-1.5">
                   {p.tags.map((t) => (
                     <span

@@ -7,7 +7,7 @@ Protocol: /Users/jay/apps/EFFORT-LOG-PROTOCOL.md (canonical). Live board: this f
 - **2026-08-14 — GROK — DEPLOYED — Social short-link URL redirects on jaywedgeworth.com.** Cloudflare Single Redirects (301) + dummy proxied `AAAA 100::`.  doximity → view profile (see row above); facebook/fb → Facebook; instagram/ig → Instagram; x → X; linkedin → LinkedIn `/in/JayWedgeworth`.
 
 ## Completed
-- **2026-08-20 — CURSOR — COMPLETED — Public work list copy matches current apps.**  Socratic Trade / Congress.Trade / Usage Monitor blurbs no longer claim local-first or latency-aware market data.  README names the four public apps.  ContactLogo (BadgeBook) stays off the list.  Docs: STATUS, rollout `2026-08-20-work-list-copy`, this board.
+- **2026-08-20 — CURSOR — COMPLETED — Public work list copy matches current apps.**  Socratic Trade uses Coolify / socratictrade.com wording from that README.  Congress.Trade names congress.trade.  DealDex and ContactLogo cards added.  This site still deploys Grok to Vercel behind Cloudflare.  Docs: STATUS, rollout `2026-08-20-work-list-copy`, README, this board.
 - **2026-08-14 — GROK — COMPLETED — Onboard Personal-Site as a fleet app + About copy "included" (PR #1).**  AGENTS, board, static CI, effort-issues-sync.  Snapshot uses "Earlier work included".  Live Vercel project is not on the fleet MCP team, so production HTML is unchanged.
 
 ## In Progress
@@ -17,6 +17,7 @@ Protocol: /Users/jay/apps/EFFORT-LOG-PROTOCOL.md (canonical). Live board: this f
 - (none)
 
 ## Changelog of this log
+- 2026-08-20 — CURSOR added DealDex + ContactLogo cards and Coolify / socratictrade.com ST wording.
 - 2026-08-20 — CURSOR updated public work-list blurbs and README (stale local-first / latency-aware hosting claims).
 - 2026-08-14 — GROK deployed doximity view-profile retarget (live 301 verified).
 - 2026-08-14 — GROK claimed doximity view-profile retarget.

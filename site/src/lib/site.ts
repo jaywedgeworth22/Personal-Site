@@ -47,7 +47,7 @@ export const site = {
       key: "st",
       name: "Socratic Trade",
       blurb:
-        "Agentic trading console for Alpaca, Tradier, and Robinhood.  Real broker paper, sandbox, and live accounts.  Production at socratictrade.com.",
+        "Next.js agentic trading console for real broker accounts.  Production at socratictrade.com (Coolify).",
       href: "https://github.com/jaywedgeworth22/Socratic.Trade",
       tags: ["TypeScript", "Agents", "Markets", "iOS"],
       icon: "/app-icons/st.png",
@@ -71,6 +71,23 @@ export const site = {
       icon: "/app-icons/um.png",
     },
     {
+      key: "dd",
+      name: "DealDex",
+      blurb:
+        "Pokémon listing desk.  Scan eBay and Mercari Buy It Now singles, then score asks against TCGPlayer and other desks.  Native Android and iOS.  Web at dealdex.online.",
+      href: "https://github.com/jaywedgeworth22/DealDex",
+      tags: ["Markets", "Android", "iOS", "Web"],
+      icon: "/app-icons/dd.png",
+    },
+    {
+      key: "cl",
+      name: "ContactLogo",
+      blurb:
+        "Brand icons for your address book.  Review-first logo matching for contacts on macOS, iOS, and web.  Site at contactlogo.grok.me.",
+      href: "https://github.com/jaywedgeworth22/BadgeBook",
+      tags: ["macOS", "iOS", "Web"],
+    },
+    {
       key: "fleet",
       name: "AI Fleet Coordinator",
       blurb:
@@ -83,6 +100,7 @@ export const site = {
     ST: "/app-icons/st.png",
     CT: "/app-icons/ct.png",
     UM: "/app-icons/um.png",
+    DD: "/app-icons/dd.png",
   } as const,
   media: {
     sketchfab:
