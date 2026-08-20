@@ -21,7 +21,7 @@ export const Route = createRootRoute({
       {
         name: "keywords",
         content:
-          "Jay Wedgeworth, John Wedgeworth, jays.services, jaywedgeworth.com, Socratic Trade, Congress.Trade, Usage Monitor, AI fleet, Houston, photogrammetry, Spaceport3D",
+          "Jay Wedgeworth, John Wedgeworth, jays.services, jaywedgeworth.com, Socratic Trade, Congress.Trade, Usage Monitor, DealDex, ContactLogo, AI fleet, Houston, photogrammetry, Spaceport3D",
       },
       { property: "og:title", content: site.name },
       { property: "og:description", content: site.tagline },

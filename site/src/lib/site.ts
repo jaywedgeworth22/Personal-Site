@@ -23,7 +23,7 @@ export const site = {
   tagline: "Building agentic trading systems with multi-agent engineering fleets.",
   about: [
     "Recent work includes developing applications for market analysis, agentic trading, optimizing API/LLM usage, and AI fleet coordination.",
-    "Earlier work includes 3D photogrammetry, aerial videography, managing construction projects with a SpaceX contractor, municipal lobbying and government relations, VoIP communication, and assisting the Visual Impairment and Intracranial Pressure team at NASA.",
+    "Earlier work included 3D photogrammetry, aerial videography, managing construction projects with a SpaceX contractor, municipal lobbying and government relations, VoIP communication, and assisting the Visual Impairment and Intracranial Pressure team at NASA.",
     "Studied medicine at UTHealth San Antonio School of Medicine and UTRGV, public health at UTHealth Houston and George Washington University, and biochemistry at Baylor University.",
   ],
   social: [
@@ -47,7 +47,7 @@ export const site = {
       key: "st",
       name: "Socratic Trade",
       blurb:
-        "Local-first agentic trading dashboard with multi-user workflows, broker adapters, SEC/RAG research, and plan-tier data controls.",
+        "Next.js agentic trading console for real broker accounts.  Production at socratictrade.com (Coolify).",
       href: "https://github.com/jaywedgeworth22/Socratic.Trade",
       tags: ["TypeScript", "Agents", "Markets", "iOS"],
       icon: "/app-icons/st.png",
@@ -56,7 +56,7 @@ export const site = {
       key: "ct",
       name: "Congress.Trade",
       blurb:
-        "Congressional trading intelligence: latency-aware market data, filters, delivery pipelines, and web + iOS surfaces.",
+        "Public dashboard and APIs for US congressional STOCK Act trade disclosures.  Web at congress.trade, plus iOS.",
       href: "https://github.com/jaywedgeworth22/Congress.Trade",
       tags: ["Markets", "Data", "Web"],
       icon: "/app-icons/ct.png",
@@ -65,10 +65,27 @@ export const site = {
       key: "um",
       name: "Usage Monitor",
       blurb:
-        "Usage, balances, credits, and costs across 30+ API providers — projections, import, and polished web + iOS surfaces.",
+        "Tracks usage, balances, credits, and costs across 30+ API providers.  Web at usage.jays.services, plus iOS.",
       href: "https://github.com/jaywedgeworth22/Usage-Monitor",
       tags: ["Ops", "Billing", "Dashboard", "iOS"],
       icon: "/app-icons/um.png",
+    },
+    {
+      key: "dd",
+      name: "DealDex",
+      blurb:
+        "Pokémon listing desk.  Scan eBay and Mercari Buy It Now singles, then score asks against TCGPlayer and other desks.  Native Android and iOS.  Web at dealdex.online.",
+      href: "https://github.com/jaywedgeworth22/DealDex",
+      tags: ["Markets", "Android", "iOS", "Web"],
+      icon: "/app-icons/dd.png",
+    },
+    {
+      key: "cl",
+      name: "ContactLogo",
+      blurb:
+        "Brand icons for your address book.  Review-first logo matching for contacts on macOS, iOS, and web.  Site at contactlogo.grok.me.",
+      href: "https://github.com/jaywedgeworth22/BadgeBook",
+      tags: ["macOS", "iOS", "Web"],
     },
     {
       key: "fleet",
@@ -83,6 +100,7 @@ export const site = {
     ST: "/app-icons/st.png",
     CT: "/app-icons/ct.png",
     UM: "/app-icons/um.png",
+    DD: "/app-icons/dd.png",
   } as const,
   media: {
     sketchfab:
