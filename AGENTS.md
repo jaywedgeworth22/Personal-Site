@@ -102,7 +102,11 @@ This repo is a **static snapshot**, not a Node app. Do not invent `npm test`.
   must preserve landed About copy (`Earlier work included`) and the Doximity
   `/profiles/…/view` URL or a later run will revert them.
 - Theme default is **light**. Two spaces between sentences in every
-  human-facing string.
+  human-facing string — **and in chat replies to the owner, PR titles/bodies,
+  commit messages, Slack posts, and every other paragraph an agent writes**
+  (owner, strengthened 2026-08-19: "For any and all paragraphs in any
+  context, always use 2 spaces..."). Canonical: `/Users/jay/apps/AGENT-SYNC.md`
+  § Two spaces and `/Users/jay/apps/FLEET-UI-COPY.md`.
 
 ## Social short links (jaywedgeworth.com)
 
