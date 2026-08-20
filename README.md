@@ -2,6 +2,8 @@
 
 Canonical repository for **[jays.services](https://jays.services)** and **[jaywedgeworth.com](https://jaywedgeworth.com)**.
 
+Public work on the site is Socratic Trade, Congress.Trade, Usage Monitor, and AI Fleet Coordinator.  Crest and BadgeBook combined into ContactLogo (BadgeBook repo) and are not listed as separate products.
+
 ## Layout
 
 | Path | What |
@@ -13,7 +15,7 @@ Canonical repository for **[jays.services](https://jays.services)** and **[jaywe
 
 ## Live deploy
 
-The production site is published from the Grok app builder to Vercel (domains `jays.services` / `jaywedgeworth.com`). This repo is the versioned source + snapshot.
+The production site is published from the Grok app builder to Vercel (domains `jays.services` / `jaywedgeworth.com`).  This repo is the versioned source + snapshot.
 
 ## Local
 
