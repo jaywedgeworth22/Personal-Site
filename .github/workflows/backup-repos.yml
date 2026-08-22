@@ -1,4 +1,4 @@
-name: Backup GitHub Repos to Google Drive
+name: Backup GitHub Repositories
 
 on:
   schedule:
@@ -21,60 +21,48 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install GitHub CLI
-        run: |
-          curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
-          sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg
-          echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
-          sudo apt update
-          sudo apt install gh -y
-
-      - name: Authenticate GitHub CLI
-        env:
-          GH_TOKEN: ${{ secrets.GH_BACKUP_TOKEN }}
-        run: gh auth status
-
       - name: Create backup directory
         run: mkdir -p backups
 
-      - name: Export Usage-Monitor as zip
+      - name: Clone and archive fleet repositories
         env:
-          GH_TOKEN: ${{ secrets.GH_BACKUP_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_BACKUP_TOKEN || secrets.GITHUB_TOKEN }}
         run: |
-          gh repo clone jaywedgeworth22/Usage-Monitor backups/Usage-Monitor
-          cd backups/Usage-Monitor && zip -r ../Usage-Monitor.zip . && cd ../.. && rm -rf backups/Usage-Monitor
+          REPOS=(
+            "Socratic.Trade"
+            "Congress.Trade"
+            "Usage-Monitor"
+            "congress-trading-shared"
+            "DealDex"
+            "Personal-Site"
+            "ai-fleet-coordinator"
+            "TopSpin"
+            "ContactLogo"
+          )
 
-      - name: Export ai-fleet-coordinator as zip
-        env:
-          GH_TOKEN: ${{ secrets.GH_BACKUP_TOKEN }}
-        run: |
-          gh repo clone jaywedgeworth22/ai-fleet-coordinator backups/ai-fleet-coordinator
-          cd backups/ai-fleet-coordinator && zip -r ../ai-fleet-coordinator.zip . && cd ../.. && rm -rf backups/ai-fleet-coordinator
+          DATE_STR=$(date +%Y-%m-%d)
+          echo "Starting backup for date: $DATE_STR"
 
-      - name: Export Congress.Trade as zip
-        env:
-          GH_TOKEN: ${{ secrets.GH_BACKUP_TOKEN }}
-        run: |
-          gh repo clone jaywedgeworth22/Congress.Trade backups/Congress.Trade
-          cd backups/Congress.Trade && zip -r ../Congress.Trade.zip . && cd ../.. && rm -rf backups/Congress.Trade
-
-      - name: Export congresstrade.grok.me as zip
-        env:
-          GH_TOKEN: ${{ secrets.GH_BACKUP_TOKEN }}
-        run: |
-          gh repo clone jaywedgeworth22/congresstrade.grok.me backups/congresstrade.grok.me || echo "Repo not found or private - skipping"
-          if [ -d "backups/congresstrade.grok.me" ]; then
-            cd backups/congresstrade.grok.me && zip -r ../congresstrade.grok.me.zip . && cd ../.. && rm -rf backups/congresstrade.grok.me
-          fi
+          for repo in "${REPOS[@]}"; do
+            echo "=========================================="
+            echo "Processing jaywedgeworth22/$repo..."
+            if gh repo clone "jaywedgeworth22/$repo" "backups/$repo" -- --depth=1; then
+              cd "backups/$repo"
+              zip -rq "../${repo}-backup-${DATE_STR}.zip" . -x "*/node_modules/*" -x "*/.git/*" -x "*/dist/*" -x "*/build/*"
+              cd ../..
+              rm -rf "backups/$repo"
+              echo "✓ Archive created: ${repo}-backup-${DATE_STR}.zip"
+            else
+              echo "⚠️ Could not clone $repo (may be private or missing permissions) - skipping"
+            fi
+          done
 
       - name: List created backups
-        run: ls -la backups/
+        run: ls -lh backups/
 
-      # Note: Google Drive upload would require additional setup or a Drive upload action
-      # For now, the zips are available as artifacts and can be downloaded
-      - name: Upload backup zips as artifacts
+      - name: Upload backup archives as artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: repo-backups
+          name: fleet-repo-backups-${{ github.run_id }}
           path: backups/*.zip
           retention-days: 90
