@@ -3,6 +3,7 @@ Protocol: /Users/jay/apps/EFFORT-LOG-PROTOCOL.md (canonical). Live board: this f
 (mirror: docs/EFFORT-LOG.md in the repo). As of 2026-08-14.
 
 ## Deployed
+- **2026-08-22 — GROK — DEPLOYED — Personal Hobby Vercel + backup handoff.**  GitHub was already on `origin/main`.  Production project `personal-site` on team `jayw` (Hobby), root `site/`.  Verified `https://personal-site-jayw.vercel.app/` HTTP 200 with "Earlier work included" and the Doximity view URL.  Apex `jays.services` still Cloudflare A `64.239.109.1` (xAI origin) until domain cutover.  Drive backups: coordinator #94 + launchd `com.jay.fleet-gdrive-backup`.  PRs #12 / coordinator #94.  Board `3a5fa02c`.
 - **2026-08-14 — GROK — DEPLOYED — doximity.jaywedgeworth.com → public view profile.** 301 to `https://www.doximity.com/profiles/3cb95815-2fd1-4985-94e5-3d6f932283bf/view`.  `/cv/jaywedgeworth` opened edit mode.  Verified live 301 after Cloudflare rule + cache purge.
 - **2026-08-14 — GROK — DEPLOYED — Social short-link URL redirects on jaywedgeworth.com.** Cloudflare Single Redirects (301) + dummy proxied `AAAA 100::`.  doximity → view profile (see row above); facebook/fb → Facebook; instagram/ig → Instagram; x → X; linkedin → LinkedIn `/in/JayWedgeworth`.
 
@@ -11,7 +12,7 @@ Protocol: /Users/jay/apps/EFFORT-LOG-PROTOCOL.md (canonical). Live board: this f
 - **2026-08-14 — GROK — COMPLETED — Onboard Personal-Site as a fleet app + About copy "included" (PR #1).**  AGENTS, board, static CI, effort-issues-sync.  Snapshot uses "Earlier work included".  Live Vercel project is not on the fleet MCP team, so production HTML is unchanged.
 
 ## In Progress
-- **2026-08-22 — GROK — IN PROGRESS — Personal Hobby Vercel + fleet Drive backup handoff.**  Claimed Sat, Aug 22, 2026.  `~/apps/personal-grok-vercel-backup` @ `grok/personal-vercel-gdrive-backup`.  Board `3a5fa02c`.  GitHub already on `origin/main`.  GHA backup never wrote Drive (`GH_BACKUP_TOKEN` empty).  Coordinator takes Drive.  Host on personal `jayw` Hobby Vercel (root `site/`).
+- (none)
 
 ## Planned / Reserved
 - (none)
