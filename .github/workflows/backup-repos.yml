@@ -1,68 +1,26 @@
 name: Backup GitHub Repositories
 
+# Fleet-wide GitHub artifact backup and Google Drive backup moved to
+# jaywedgeworth22/ai-fleet-coordinator:
+#   - Drive (canonical): Mac launchd com.jay.fleet-gdrive-backup
+#     scripts/backup-fleet-to-gdrive.py
+#   - GitHub artifacts (90 days): .github/workflows/backup-repos.yml there
+#
+# This workflow used to clone a hardcoded repo list with GH_BACKUP_TOKEN.
+# That secret was never set, so GH_TOKEN was empty and every scheduled run
+# since 2026-08-13 failed.  Keep workflow_dispatch so old Action URLs still
+# resolve; do not schedule it.
+
 on:
-  schedule:
-    # Run daily at 07:00 UTC
-    - cron: '0 7 * * *'
   workflow_dispatch:
-    # Allow manual trigger from Actions tab
 
 jobs:
-  backup:
+  notice:
     runs-on: ubuntu-latest
     permissions:
       contents: read
     steps:
-      - name: Checkout Personal-Site
-        uses: actions/checkout@v4
-
-      - name: Setup GitHub CLI
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Create backup directory
-        run: mkdir -p backups
-
-      - name: Clone and archive fleet repositories
-        env:
-          GH_TOKEN: ${{ secrets.GH_BACKUP_TOKEN || secrets.GITHUB_TOKEN }}
+      - name: Point at the coordinator backup
         run: |
-          REPOS=(
-            "Socratic.Trade"
-            "Congress.Trade"
-            "Usage-Monitor"
-            "congress-trading-shared"
-            "DealDex"
-            "Personal-Site"
-            "ai-fleet-coordinator"
-            "TopSpin"
-            "ContactLogo"
-          )
-
-          DATE_STR=$(date +%Y-%m-%d)
-          echo "Starting backup for date: $DATE_STR"
-
-          for repo in "${REPOS[@]}"; do
-            echo "=========================================="
-            echo "Processing jaywedgeworth22/$repo..."
-            if gh repo clone "jaywedgeworth22/$repo" "backups/$repo" -- --depth=1; then
-              cd "backups/$repo"
-              zip -rq "../${repo}-backup-${DATE_STR}.zip" . -x "*/node_modules/*" -x "*/.git/*" -x "*/dist/*" -x "*/build/*"
-              cd ../..
-              rm -rf "backups/$repo"
-              echo "✓ Archive created: ${repo}-backup-${DATE_STR}.zip"
-            else
-              echo "⚠️ Could not clone $repo (may be private or missing permissions) - skipping"
-            fi
-          done
-
-      - name: List created backups
-        run: ls -lh backups/
-
-      - name: Upload backup archives as artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: fleet-repo-backups-${{ github.run_id }}
-          path: backups/*.zip
-          retention-days: 90
+          echo "Drive backup: Mac job com.jay.fleet-gdrive-backup"
+          echo "GitHub artifact backup: jaywedgeworth22/ai-fleet-coordinator .github/workflows/backup-repos.yml"

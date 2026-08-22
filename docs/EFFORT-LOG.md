@@ -11,12 +11,13 @@ Protocol: /Users/jay/apps/EFFORT-LOG-PROTOCOL.md (canonical). Live board: this f
 - **2026-08-14 — GROK — COMPLETED — Onboard Personal-Site as a fleet app + About copy "included" (PR #1).**  AGENTS, board, static CI, effort-issues-sync.  Snapshot uses "Earlier work included".  Live Vercel project is not on the fleet MCP team, so production HTML is unchanged.
 
 ## In Progress
-- (none)
+- **2026-08-22 — GROK — IN PROGRESS — Personal Hobby Vercel + fleet Drive backup handoff.**  Claimed Sat, Aug 22, 2026.  `~/apps/personal-grok-vercel-backup` @ `grok/personal-vercel-gdrive-backup`.  Board `3a5fa02c`.  GitHub already on `origin/main`.  GHA backup never wrote Drive (`GH_BACKUP_TOKEN` empty).  Coordinator takes Drive.  Host on personal `jayw` Hobby Vercel (root `site/`).
 
 ## Planned / Reserved
 - (none)
 
 ## Changelog of this log
+- 2026-08-22 — GROK claimed personal Hobby Vercel + backup handoff (board `3a5fa02c`).
 - 2026-08-20 — CURSOR added DealDex + ContactLogo cards and Coolify / socratictrade.com ST wording.
 - 2026-08-20 — CURSOR updated public work-list blurbs and README (stale local-first / latency-aware hosting claims).
 - 2026-08-14 — GROK deployed doximity view-profile retarget (live 301 verified).
