@@ -4,7 +4,7 @@ Jay Wedgeworth personal portfolio. Live domains **jays.services** (primary)
 and **jaywedgeworth.com** (apex redirects to jays.services). Slack `repo:`
 name: **`Personal-Site`**. Acronym: **`PS`**.
 
-GitHub: `jaywedgeworth22/Personal-Site` (private). Integration tree:
+GitHub: `jaywedgeworth22/Personal-Site` (public). Integration tree:
 `/Users/jay/Code/Personal-Site`.
 
 Read this before making changes.
@@ -89,18 +89,25 @@ test -f docs/EFFORT-LOG.md
 rg -n "Earlier work included" static/index.html
 ```
 
-This repo is a **static snapshot**, not a Node app. Do not invent `npm test`.
+CI `verify` is file-existence + About-copy grep.  `site/` is the TanStack
+Start source.  Do not invent `npm test`.  Local: `cd site && npm run dev`.
 
 ## Product / stack
 
+- `site/` is the live TanStack Start / Vite app (Nitro `vercel` preset).
 - `static/` is a wget snapshot of the published site (HTML + hashed assets).
-- Original TypeScript/React source is **not** in this repository yet.
-- Live origin is Vercel behind Cloudflare. The Vercel team this fleet MCP
-  can see (`jaywedgeworth22s-projects`) currently has **DealDex only**. Do
-  not create a second personal-site Vercel project unless the owner asks.
+- Production host is the owner's **personal Vercel Hobby team** "Jay's
+  Services" (`jayw`, `team_l3mWAejl1E08y8ijku5DpBE6`), same team as DealDex.
+  Root directory `site`.  Do **not** publish production from the xAI Grok
+  builder.  A personal portfolio plus DealDex is a rounding error on Hobby
+  hosting (unlimited sites, 100 GB bandwidth).
 - `.github/workflows/mirror-site.yml` re-fetches the live site daily. It
   must preserve landed About copy (`Earlier work included`) and the Doximity
   `/profiles/…/view` URL or a later run will revert them.
+- Fleet source backups (Drive + GitHub artifacts) are owned by
+  `ai-fleet-coordinator` (`com.jay.fleet-gdrive-backup` +
+  `.github/workflows/backup-repos.yml` there).  Do not resurrect a
+  hardcoded repo list in this repo's Actions.
 - Theme default is **light**. Two spaces between sentences in every
   human-facing string — **and in chat replies to the owner, PR titles/bodies,
   commit messages, Slack posts, and every other paragraph an agent writes**
