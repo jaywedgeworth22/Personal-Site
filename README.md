@@ -2,7 +2,7 @@
 
 Canonical repository for **[jays.services](https://jays.services)** and **[jaywedgeworth.com](https://jaywedgeworth.com)**.
 
-Public work on the site is Socratic Trade, Congress.Trade, Usage Monitor, DealDex, ContactLogo, and AI Fleet Coordinator.  Crest and BadgeBook combined into ContactLogo (BadgeBook repo).  Production is the owner's personal Vercel Hobby team (Jay's Services / `jayw`), GitHub `main` → `site/`, behind Cloudflare.
+Public work on the site is Socratic Trade, Congress.Trade, Usage Monitor, DealDex, ContactLogo, and AI Fleet Coordinator.  Crest and BadgeBook combined into ContactLogo (`jaywedgeworth22/ContactLogo`, site contactlogo.com).  This personal site deploys from GitHub `main` → `site/`, behind Cloudflare.
 
 ## Layout
 
