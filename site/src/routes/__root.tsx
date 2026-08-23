@@ -1,5 +1,6 @@
 import { HeadContent, Outlet, Scripts, createRootRoute } from "@tanstack/react-router";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Analytics } from "@vercel/analytics/react";
 import { useState } from "react";
 import { CreatedWithGrokBanner } from "@/components/created-with-grok-banner";
 import { SiteHeader } from "@/components/site-header";
@@ -87,6 +88,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       </head>
       <body className="min-h-dvh bg-bg font-sans text-fg antialiased">
         {children}
+        <Analytics />
         <Scripts />
       </body>
     </html>

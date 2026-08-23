@@ -12,12 +12,13 @@ Protocol: /Users/jay/apps/EFFORT-LOG-PROTOCOL.md (canonical). Live board: this f
 - **2026-08-14 — GROK — COMPLETED — Onboard Personal-Site as a fleet app + About copy "included" (PR #1).**  AGENTS, board, static CI, effort-issues-sync.  Snapshot uses "Earlier work included".  Live Vercel project is not on the fleet MCP team, so production HTML is unchanged.
 
 ## In Progress
-- (none)
+- **2026-08-22 — CURSOR — IN PROGRESS — Vercel Web Analytics.**  `~/apps/personal-cursor` @ `cursor/vercel-analytics`.  `@vercel/analytics` + `<Analytics />` in `site/src/routes/__root.tsx` (React import).  Board `36573226`.
 
 ## Planned / Reserved
 - (none)
 
 ## Changelog of this log
+- 2026-08-22 — CURSOR claimed Vercel Web Analytics (board `36573226`).
 - 2026-08-22 — GROK claimed personal Hobby Vercel + backup handoff (board `3a5fa02c`).
 - 2026-08-20 — CURSOR added DealDex + ContactLogo cards and Coolify / socratictrade.com ST wording.
 - 2026-08-20 — CURSOR updated public work-list blurbs and README (stale local-first / latency-aware hosting claims).
