@@ -74,7 +74,7 @@ export const site = {
       key: "dd",
       name: "DealDex",
       blurb:
-        "Pokémon listing desk.  Scan eBay and Mercari Buy It Now singles, then score asks against TCGPlayer and other desks.  Native Android and iOS.  Web at dealdex.online.",
+        "Pokémon listing desk.  Scan eBay and Mercari Buy It Now singles, then score asks against TCGPlayer and other desks.  Native Android and iOS.  Web at dealdex.net.",
       href: "https://github.com/jaywedgeworth22/DealDex",
       tags: ["Markets", "Android", "iOS", "Web"],
       icon: "/app-icons/dd.png",
@@ -83,8 +83,8 @@ export const site = {
       key: "cl",
       name: "ContactLogo",
       blurb:
-        "Brand icons for your address book.  Review-first logo matching for contacts on macOS, iOS, and web.  Site at contactlogo.grok.me.",
-      href: "https://github.com/jaywedgeworth22/BadgeBook",
+        "Brand icons for your address book.  Review-first logo matching for contacts on macOS, iOS, and web.  Site at contactlogo.com.",
+      href: "https://github.com/jaywedgeworth22/ContactLogo",
       tags: ["macOS", "iOS", "Web"],
     },
     {
