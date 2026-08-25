@@ -1,4 +1,14 @@
-export type RepoCode = "ST" | "CT" | "UM" | "shared" | "fleet" | "other";
+export type RepoCode =
+  | "ST"
+  | "CT"
+  | "UM"
+  | "DD"
+  | "AR"
+  | "CL"
+  | "PS"
+  | "shared"
+  | "fleet"
+  | "other";
 
 export type DigestItem = {
   repo: RepoCode;
@@ -29,6 +39,10 @@ const REPO_MAP: Record<string, RepoCode> = {
   ST: "ST",
   CT: "CT",
   UM: "UM",
+  DD: "DD",
+  AR: "AR",
+  CL: "CL",
+  PS: "PS",
   shared: "shared",
   fleet: "fleet",
   SHARED: "shared",
@@ -58,9 +72,9 @@ function parseItem(line: string): DigestItem | null {
   const href = linkMatch?.[2];
   const num = linkMatch?.[1];
 
-  const repoMatch = raw.match(/\*\*(ST|CT|UM|shared|fleet|SHARED|FLEET)\*\*/i);
-  const repoKey = repoMatch?.[1] ?? "other";
-  const repo = REPO_MAP[repoKey] ?? "other";
+  const repoMatch = raw.match(/\*\*(ST|CT|UM|DD|AR|CL|PS|shared|fleet|SHARED|FLEET)\*\*/i);
+  const repoKey = repoMatch?.[1]?.toUpperCase() ?? "other";
+  const repo = REPO_MAP[repoKey] ?? REPO_MAP[repoMatch?.[1] ?? ""] ?? "other";
 
   // Monet / Renoir / Fable collapse to Claude on personal site badges too
   let agentMatch = raw.match(/`(Monet|Renoir|Fable|Claude|Grok|Codex|Cursor|AG|Gemini)[^`]*`/i);
@@ -70,7 +84,7 @@ function parseItem(line: string): DigestItem | null {
   }
 
   let title = raw
-    .replace(/\*\*(ST|CT|UM|shared|fleet|SHARED|FLEET)\*\*/i, "")
+    .replace(/\*\*(ST|CT|UM|DD|AR|CL|PS|shared|fleet|SHARED|FLEET)\*\*/i, "")
     .replace(/`[^`]+`/g, "")
     .replace(/\[#\d+\]\([^)]+\)/g, num ? `#${num}` : "")
     .replace(/_\(by [^)]+\)_/g, "")
@@ -158,6 +172,14 @@ export function repoLabel(code: RepoCode): string {
       return "Congress.Trade";
     case "UM":
       return "Usage Monitor";
+    case "DD":
+      return "DealDex";
+    case "AR":
+      return "Autorotate";
+    case "CL":
+      return "ContactLogo";
+    case "PS":
+      return "Personal Site";
     case "shared":
       return "Shared";
     case "fleet":
