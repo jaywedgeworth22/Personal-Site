@@ -5,12 +5,13 @@
  */
 import { createRequire } from "node:module";
 import {
-  assertDatadogKeysOrThrow,
   datadogEnvName,
+  datadogFailClosedMessage,
   datadogService,
   datadogSite,
   datadogVersion,
   isDatadogRequired,
+  missingServerDatadogKeys,
   readApiKey,
 } from "./fail-closed";
 
@@ -25,16 +26,19 @@ const globalRef = globalThis as typeof globalThis & {
 };
 
 export function initDatadogServer(): void {
-  assertDatadogKeysOrThrow();
-
   if (globalRef.__personalSiteDatadogServer__) return;
   globalRef.__personalSiteDatadogServer__ = true;
 
+  const missingServer = missingServerDatadogKeys();
+  if (missingServer.length > 0) {
+    if (isDatadogRequired()) {
+      originalError(datadogFailClosedMessage(missingServer));
+    }
+    return;
+  }
+
   const apiKey = readApiKey();
   if (!apiKey) {
-    if (isDatadogRequired()) {
-      assertDatadogKeysOrThrow();
-    }
     return;
   }
 
@@ -59,7 +63,6 @@ export function initDatadogServer(): void {
       port: useAgent ? process.env.DD_TRACE_AGENT_PORT || "8126" : undefined,
     });
   } catch (err) {
-    if (isDatadogRequired()) throw err;
     originalError("dd-trace init failed:", err);
     return;
   }
@@ -135,9 +138,6 @@ export async function sendServerLog(
 ): Promise<void> {
   const apiKey = readApiKey();
   if (!apiKey) {
-    if (isDatadogRequired()) {
-      assertDatadogKeysOrThrow();
-    }
     return;
   }
 

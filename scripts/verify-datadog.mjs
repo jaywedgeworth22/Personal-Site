@@ -41,10 +41,13 @@ mustMatch("site/src/lib/datadog/fail-closed.ts", /Datadog fail-closed/);
 mustMatch("site/src/lib/datadog/fail-closed.ts", /DD_API_KEY/);
 mustMatch("site/src/lib/datadog/fail-closed.ts", /DD_APPLICATION_ID/);
 mustMatch("site/src/lib/datadog/fail-closed.ts", /DD_CLIENT_TOKEN/);
+mustMatch("site/src/lib/datadog/fail-closed.ts", /Never throws/);
 mustMatch("site/src/lib/datadog/rum.ts", /@datadog\/browser-rum/);
 mustMatch("site/src/lib/datadog/rum.ts", /sessionReplaySampleRate: 0/);
+mustNotMatch("site/src/lib/datadog/rum.ts", /throw new Error\(datadogFailClosedMessage/);
 mustMatch("site/src/lib/datadog/server.server.ts", /dd-trace/);
 mustMatch("site/src/lib/datadog/server.server.ts", /agentless/);
+mustNotMatch("site/src/lib/datadog/server.server.ts", /if \(isDatadogRequired\(\)\) throw/);
 mustMatch("site/src/routes/__root.tsx", /DatadogRum/);
 mustMatch("site/src/lib/error-component.tsx", /reportVisibleError/);
 mustMatch("site/src/lib/error-component.tsx", /error\.message/);
@@ -61,20 +64,38 @@ execFileSync(
     "--experimental-strip-types",
     "--eval",
     `
-    import { assertDatadogKeysOrThrow, isDatadogRequired, missingDatadogKeys } from ${JSON.stringify(failClosed)};
+    import {
+      assertDatadogKeysOrThrow,
+      datadogSite,
+      isDatadogRequired,
+      missingDatadogKeys,
+      missingRumDatadogKeys,
+      missingServerDatadogKeys,
+    } from ${JSON.stringify(failClosed)};
 
     if (isDatadogRequired({})) throw new Error("local must not require Datadog");
     if (!isDatadogRequired({ VERCEL_ENV: "production" })) throw new Error("production must require Datadog");
     if (!isDatadogRequired({ DD_FAIL_CLOSED: "1" })) throw new Error("DD_FAIL_CLOSED=1 must require Datadog");
 
     const missing = missingDatadogKeys({});
-    if (!missing.includes("DD_API_KEY") || !missing.includes("DD_SITE")) {
-      throw new Error("empty env must report missing keys");
+    if (!missing.includes("DD_API_KEY") || !missing.includes("DD_APPLICATION_ID")) {
+      throw new Error("empty env must report missing API + RUM keys");
+    }
+    if (missing.includes("DD_SITE")) {
+      throw new Error("DD_SITE has a default and is not a boot key");
+    }
+    if (missingServerDatadogKeys({}).join() !== "DD_API_KEY") {
+      throw new Error("server boot key is API key only");
+    }
+    if (missingRumDatadogKeys("", "").length !== 2) {
+      throw new Error("RUM stays dark without both intake vars");
+    }
+    if (datadogSite({}).includes("us5") === false) {
+      throw new Error("unset DD_SITE must default to the existing us5 site");
     }
 
     const complete = {
       DD_API_KEY: "placeholder-not-a-real-key",
-      DD_SITE: "us5.datadoghq.com",
       DD_APPLICATION_ID: "app-id",
       DD_CLIENT_TOKEN: "client-token",
     };
@@ -82,14 +103,9 @@ execFileSync(
       throw new Error("complete env should have no missing keys");
     }
 
-    let threw = false;
-    try {
-      assertDatadogKeysOrThrow({ VERCEL_ENV: "production" });
-    } catch (err) {
-      threw = String(err).includes("Datadog fail-closed");
-    }
-    if (!threw) throw new Error("production without keys must throw fail-closed");
-
+    // Same env as a Vercel Production build with keys not attached.
+    assertDatadogKeysOrThrow({ VERCEL_ENV: "production" });
+    assertDatadogKeysOrThrow({ VERCEL_ENV: "production", DD_API_KEY: "placeholder-not-a-real-key" });
     assertDatadogKeysOrThrow({});
     console.log("datadog fail-closed unit checks ok");
     `,

@@ -1,6 +1,6 @@
 import { datadogLogs } from "@datadog/browser-logs";
 import { datadogRum } from "@datadog/browser-rum";
-import { datadogFailClosedMessage } from "./fail-closed";
+import { datadogFailClosedMessage, missingRumDatadogKeys } from "./fail-closed";
 import { readDatadogRumPublicEnv } from "./public-env";
 
 let rumStarted = false;
@@ -9,16 +9,14 @@ export function initDatadogRum(): void {
   if (typeof window === "undefined" || rumStarted) return;
 
   const cfg = readDatadogRumPublicEnv();
-  const missing: string[] = [];
-  if (!cfg.applicationId) missing.push("DD_APPLICATION_ID");
-  if (!cfg.clientToken) missing.push("DD_CLIENT_TOKEN");
-  if (!cfg.site) missing.push("DD_SITE");
+  const missing = missingRumDatadogKeys(cfg.applicationId, cfg.clientToken);
 
   if (missing.length > 0) {
+    // SITE is a label with a default.  A missing RUM pair stays dark.
+    // Do not throw — missing keys must not fail the Vercel Production build.
     if (cfg.failClosed) {
-      throw new Error(datadogFailClosedMessage(missing));
+      console.error(datadogFailClosedMessage(missing));
     }
-    console.error(datadogFailClosedMessage(missing));
     return;
   }
 

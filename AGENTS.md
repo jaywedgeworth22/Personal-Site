@@ -154,8 +154,9 @@ Usage.Jays.Services Global API Key (`CLOUDFLARE_JAY_API_KEY` +
 
 Logs + APM + RUM on the existing Datadog org (`us5.datadoghq.com`).  Reuse
 env vars already in the fleet.  Do not invent keys in git.  Production
-(`VERCEL_ENV=production`) and `DD_FAIL_CLOSED=1` fail closed if keys are
-missing.  Do not replace Sentry or PagerDuty.  Do not hide rendered errors.
+(`VERCEL_ENV=production`) and `DD_FAIL_CLOSED=1` log and stay dark if keys
+are missing — they must not throw on `vite build` or SSR boot.  Do not
+replace Sentry or PagerDuty.  Do not hide rendered errors.
 
 | Name | Used for |
 |------|----------|

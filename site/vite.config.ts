@@ -14,6 +14,8 @@ import {
 
 function datadogPublicDefine(): Record<string, string> {
   const production = process.env.VERCEL_ENV === "production";
+  // Warn only.  #19 threw here when VERCEL_ENV=production and DD_* were
+  // unset, so the Production deploy failed while Preview stayed green.
   if (production || process.env.DD_FAIL_CLOSED === "1") {
     assertDatadogKeysOrThrow(process.env);
   }
