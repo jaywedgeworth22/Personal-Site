@@ -56,8 +56,8 @@ function repoClass(code: RepoCode): string {
 
 function RepoBadge({ code }: { code: RepoCode }) {
   const icon =
-    code === "ST" || code === "CT" || code === "UM"
-      ? site.appIcons[code]
+    code in site.appIcons
+      ? site.appIcons[code as keyof typeof site.appIcons]
       : undefined;
 
   if (icon) {

@@ -1,7 +1,8 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { site } from "@/lib/site";
 import { FleetActivity } from "@/components/fleet-activity";
 import { HeroNameAnchor } from "@/components/morphing-name";
+import { SocialIcon } from "@/components/social-icons";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -15,6 +16,39 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 
 function withDoubleSpaces(text: string): string {
   return text.replace(/\. {1,2}/g, ".\u00A0\u00A0");
+}
+
+function renderBlurbWithLinks(text: string): React.ReactNode {
+  const domainRegex = /\b((?:[a-zA-Z0-9-]+\.)+(?:com|net|org|codes|services|trade|io|app|dev))\b/gi;
+  const nodes: React.ReactNode[] = [];
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+
+  while ((match = domainRegex.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      nodes.push(withDoubleSpaces(text.slice(lastIndex, match.index)));
+    }
+    const domain = match[1]!;
+    const href = domain.startsWith("http") ? domain : `https://${domain.toLowerCase()}`;
+    nodes.push(
+      <a
+        key={`${match.index}-${domain}`}
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="font-medium text-[#2563eb] no-underline transition-colors hover:text-[#1d4ed8]"
+      >
+        {domain}
+      </a>,
+    );
+    lastIndex = match.index + domain.length;
+  }
+
+  if (lastIndex < text.length) {
+    nodes.push(withDoubleSpaces(text.slice(lastIndex)));
+  }
+
+  return nodes;
 }
 
 export function HomePage() {
@@ -52,11 +86,8 @@ export function HomePage() {
           <SectionLabel>Work</SectionLabel>
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             {site.projects.map((p) => (
-              <a
+              <div
                 key={p.key}
-                href={p.href}
-                target="_blank"
-                rel="noopener noreferrer"
                 className={cn(
                   "group flex flex-col rounded-[var(--radius-lg)] border border-border bg-bg-elevated/90 p-5 shadow-[var(--shadow-soft)] backdrop-blur-[2px]",
                   "transition-[border-color,transform] duration-200 ease-out hover:border-border-strong",
@@ -76,18 +107,27 @@ export function HomePage() {
                       />
                     ) : (
                       <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-[var(--radius-sm)] border border-border bg-bg-subtle text-xs font-semibold tracking-wide text-fg-muted">
-                        {p.key.slice(0, 2).toUpperCase()}
+                        {p.key.slice(0, 3).toUpperCase()}
                       </span>
                     )}
                     <h3 className="text-lg font-medium tracking-tight text-fg">{p.name}</h3>
                   </div>
-                  <ArrowUpRight
-                    className="size-4 shrink-0 text-fg-subtle transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-fg"
-                    aria-hidden
-                  />
+                  <a
+                    href={p.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`View ${p.name} on GitHub`}
+                    className="inline-flex items-center gap-1.5 rounded-full border border-border bg-bg-subtle/80 px-2.5 py-1 text-xs font-medium text-fg-muted shadow-xs transition-all duration-150 hover:border-border-strong hover:bg-bg-elevated hover:text-fg group/btn"
+                  >
+                    <ArrowRight
+                      className="size-3.5 transition-transform group-hover/btn:translate-x-0.5"
+                      aria-hidden
+                    />
+                    <SocialIcon id="github" className="size-3.5" />
+                  </a>
                 </div>
                 <p className="mt-3 flex-1 text-sm leading-relaxed text-fg-muted">
-                  {withDoubleSpaces(p.blurb)}
+                  {renderBlurbWithLinks(p.blurb)}
                 </p>
                 <div className="mt-4 flex flex-wrap gap-1.5">
                   {p.tags.map((t) => (
@@ -99,7 +139,7 @@ export function HomePage() {
                     </span>
                   ))}
                 </div>
-              </a>
+              </div>
             ))}
           </div>
         </div>
