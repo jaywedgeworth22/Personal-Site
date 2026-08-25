@@ -80,6 +80,15 @@ export const site = {
       icon: "/app-icons/dd.png",
     },
     {
+      key: "ar",
+      name: "Autorotate",
+      blurb:
+        "Dynamic secret rotation and cryptographic credential lifecycle manager across clouds and local keychains.  Native macOS and iOS.  Web at autorotate.codes.",
+      href: "https://github.com/jaywedgeworth22/Autorotate",
+      tags: ["Security", "macOS", "iOS", "Crypto"],
+      icon: "/app-icons/ar.png",
+    },
+    {
       key: "cl",
       name: "ContactLogo",
       blurb:
@@ -103,6 +112,7 @@ export const site = {
     CT: "/app-icons/ct.png",
     UM: "/app-icons/um.png",
     DD: "/app-icons/dd.png",
+    AR: "/app-icons/ar.png",
     CL: "/app-icons/cl.png",
     fleet: "/app-icons/fleet.png",
   } as const,
