@@ -14,12 +14,13 @@ Protocol: /Users/jay/apps/EFFORT-LOG-PROTOCOL.md (canonical). Live board: this f
 - **2026-08-14 — GROK — COMPLETED — Onboard Personal-Site as a fleet app + About copy "included" (PR #1).**  AGENTS, board, static CI, effort-issues-sync.  Snapshot uses "Earlier work included".  Live Vercel project is not on the fleet MCP team, so production HTML is unchanged.
 
 ## In Progress
-- (none)
+- **2026-08-25 — CURSOR — IN PROGRESS — Designer leftover UX (visitor blurbs + CL/Fleet icons).**  `cursor/visitor-work-copy-icons-d839`.  Copy and icons only.  Datadog #19 untouched.  No deploy.
 
 ## Planned / Reserved
 - (none)
 
 ## Changelog of this log
+- 2026-08-25 — CURSOR claimed Designer leftover UX (visitor blurbs + icons).
 - 2026-08-25 — CURSOR opened Personal-Site PR #19 (Datadog logs + APM + RUM).
 - 2026-08-22 — CURSOR claimed Vercel Web Analytics (board `36573226`).
 - 2026-08-22 — GROK claimed personal Hobby Vercel + backup handoff (board `3a5fa02c`).
