@@ -14,9 +14,9 @@ import {
 
 function datadogPublicDefine(): Record<string, string> {
   const production = process.env.VERCEL_ENV === "production";
-  if (production || process.env.DD_FAIL_CLOSED === "1") {
-    assertDatadogKeysOrThrow(process.env);
-  }
+  // Never throw here.  A missing RUM/APM key must not fail `vite build`
+  // on Vercel Production (preview of the same commit stays green).
+  assertDatadogKeysOrThrow(process.env);
   const failClosed = production || process.env.DD_FAIL_CLOSED === "1";
   return {
     "import.meta.env.DD_APPLICATION_ID": JSON.stringify(process.env.DD_APPLICATION_ID ?? ""),

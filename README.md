@@ -21,9 +21,9 @@ The production site is the Vercel project **personal-site** on team **Jay's Serv
 
 Datadog logs, APM, and RUM use the **existing** Datadog account.  Attach the
 already-created env vars on the Vercel `personal-site` project (`DD_API_KEY`,
-`DD_SITE`, `DD_APPLICATION_ID`, `DD_CLIENT_TOKEN`).  Production fails closed
-if those are missing.  Do not commit secret values.  Sentry and PagerDuty are
-unchanged.
+`DD_SITE`, `DD_APPLICATION_ID`, `DD_CLIENT_TOKEN`).  Missing keys stay dark
+and the site still serves.  Do not commit secret values.  Sentry and PagerDuty
+are unchanged.
 
 ## Local
 

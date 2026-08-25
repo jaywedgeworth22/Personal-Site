@@ -10,7 +10,6 @@ import {
   datadogService,
   datadogSite,
   datadogVersion,
-  isDatadogRequired,
   readApiKey,
 } from "./fail-closed";
 
@@ -32,9 +31,6 @@ export function initDatadogServer(): void {
 
   const apiKey = readApiKey();
   if (!apiKey) {
-    if (isDatadogRequired()) {
-      assertDatadogKeysOrThrow();
-    }
     return;
   }
 
@@ -59,9 +55,9 @@ export function initDatadogServer(): void {
       port: useAgent ? process.env.DD_TRACE_AGENT_PORT || "8126" : undefined,
     });
   } catch (err) {
-    if (isDatadogRequired()) throw err;
+    // Native tracer is optional on Vercel.  HTTP logs still work.
+    // Never rethrow — that 500s every SSR request in production.
     originalError("dd-trace init failed:", err);
-    return;
   }
 
   hookConsoleAndProcess();
@@ -135,9 +131,6 @@ export async function sendServerLog(
 ): Promise<void> {
   const apiKey = readApiKey();
   if (!apiKey) {
-    if (isDatadogRequired()) {
-      assertDatadogKeysOrThrow();
-    }
     return;
   }
 

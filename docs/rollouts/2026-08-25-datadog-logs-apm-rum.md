@@ -5,9 +5,9 @@
 Instrument the TanStack Start site on Vercel with the existing Datadog
 account.  Browser RUM + browser logs, server logs over HTTP intake, and
 Node APM via `dd-trace` (agentless on Vercel, Agent when `DD_AGENT_HOST`
-is set).  Production fails closed if keys are missing.  No new Datadog
-spend levers (Replay off, 20% prod trace sample).  Sentry / PagerDuty
-untouched.  No Designer UX change.
+is set).  Missing or partial keys stay dark — do not fail the production
+build or SSR.  No new Datadog spend levers (Replay off, 20% prod trace
+sample).  Sentry / PagerDuty untouched.  No Designer UX change.
 
 ## Why
 
@@ -41,5 +41,5 @@ cd site && npx tsc --noEmit
 ```
 
 Production data appears after the existing keys are present on Vercel
-Production and a visit.  Preview / local skip fail-closed unless
-`DD_FAIL_CLOSED=1`.
+Production and a visit.  Missing keys stay dark; the site still builds
+and serves.
