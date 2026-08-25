@@ -47,7 +47,7 @@ export const site = {
       key: "st",
       name: "Socratic Trade",
       blurb:
-        "A trading console for real broker accounts.  Live at socratictrade.com.",
+        "A trading console for real broker accounts.  Live at SocraticTrade.com.",
       href: "https://github.com/jaywedgeworth22/Socratic.Trade",
       tags: ["TypeScript", "Agents", "Markets", "iOS"],
       icon: "/app-icons/st.png",
@@ -56,7 +56,7 @@ export const site = {
       key: "ct",
       name: "Congress.Trade",
       blurb:
-        "A public dashboard of STOCK Act disclosures from the House, Senate, and Executive Branch.  Web at congress.trade, plus iOS.",
+        "A public dashboard of STOCK Act disclosures from the House, Senate, and Executive Branch.  Web at Congress.Trade, plus iOS.",
       href: "https://github.com/jaywedgeworth22/Congress.Trade",
       tags: ["Markets", "Data", "Web"],
       icon: "/app-icons/ct.png",
@@ -74,7 +74,7 @@ export const site = {
       key: "dd",
       name: "DealDex",
       blurb:
-        "A Pokémon listing desk.  Scan eBay and Mercari Buy It Now singles, then score asks against TCGPlayer and other marketplaces.  Native Android and iOS.  Web at dealdex.net.",
+        "A Pokémon listing desk.  Scan eBay and Mercari Buy It Now singles, then score asks against TCGPlayer and other marketplaces.  Native Android and iOS.  Web at DealDex.net.",
       href: "https://github.com/jaywedgeworth22/DealDex",
       tags: ["Markets", "Android", "iOS", "Web"],
       icon: "/app-icons/dd.png",
@@ -83,7 +83,7 @@ export const site = {
       key: "ar",
       name: "Autorotate",
       blurb:
-        "Dynamic secret rotation and cryptographic credential lifecycle manager across clouds and local keychains.  Native macOS and iOS.  Web at autorotate.codes.",
+        "Dynamic secret rotation and cryptographic credential lifecycle manager across clouds and local keychains.  Native macOS and iOS.  Web at Autorotate.Codes.",
       href: "https://github.com/jaywedgeworth22/Autorotate",
       tags: ["Security", "macOS", "iOS", "Crypto"],
       icon: "/app-icons/ar.png",
@@ -92,10 +92,18 @@ export const site = {
       key: "cl",
       name: "ContactLogo",
       blurb:
-        "Brand icons for your address book.  You review each match before it is written.  Available on macOS, iOS, and the web.  Site at contactlogo.com.",
+        "Brand icons for your address book.  You review each match before it is written.  Available on macOS, iOS, and the web.  Site at ContactLogo.com.",
       href: "https://github.com/jaywedgeworth22/ContactLogo",
       tags: ["macOS", "iOS", "Web"],
       icon: "/app-icons/cl.png",
+    },
+    {
+      key: "shared",
+      name: "Congress Trading Shared",
+      blurb:
+        "Shared TypeScript contracts, Zod schemas, and utilities for Congress.Trade and Socratic Trade cross-app integration.",
+      href: "https://github.com/jaywedgeworth22/congress-trading-shared",
+      tags: ["TypeScript", "Zod", "Cross-App", "Package"],
     },
     {
       key: "fleet",
