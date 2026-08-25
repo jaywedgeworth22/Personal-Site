@@ -1,5 +1,8 @@
 # Status
 
+- 2026-08-25: Designer leftover UX — visitor work blurbs + ContactLogo / Fleet
+  icons.  No Next.js / Coolify / "30+" on cards.  CL / FL initial badges
+  gone.  Copy and icons only.  Datadog #19 untouched.  Do not deploy.
 - 2026-08-25: Datadog logs + APM + RUM on the existing account.  Fail closed
   in production if `DD_API_KEY` / `DD_SITE` / `DD_APPLICATION_ID` /
   `DD_CLIENT_TOKEN` are missing.  Replay off.  Sentry / PagerDuty unchanged.

@@ -8,6 +8,7 @@ Protocol: /Users/jay/apps/EFFORT-LOG-PROTOCOL.md (canonical). Live board: this f
 - **2026-08-14 — GROK — DEPLOYED — Social short-link URL redirects on jaywedgeworth.com.** Cloudflare Single Redirects (301) + dummy proxied `AAAA 100::`.  doximity → view profile (see row above); facebook/fb → Facebook; instagram/ig → Instagram; x → X; linkedin → LinkedIn `/in/JayWedgeworth`.
 
 ## Completed
+- **2026-08-25 — CURSOR — COMPLETED — Designer leftover UX (visitor blurbs + CL/Fleet icons).**  PR #22.  Copy and icons only.  Datadog #19 untouched.  No deploy.
 - **2026-08-25 — CURSOR — COMPLETED — Datadog logs + APM + RUM.**  PR #19.  Existing Datadog account.  Fail closed if keys missing.  Replay off.  Sentry / PagerDuty unchanged.
 - **2026-08-22 — CURSOR — COMPLETED — Vercel Web Analytics.**  `@vercel/analytics/react` in `site/src/routes/__root.tsx`.  PR #17.
 - **2026-08-20 — CURSOR — COMPLETED — Public work list copy matches current apps.**  Socratic Trade uses Coolify / socratictrade.com wording from that README.  Congress.Trade names congress.trade.  DealDex and ContactLogo cards added.  This site still deploys Grok to Vercel behind Cloudflare.  Docs: STATUS, rollout `2026-08-20-work-list-copy`, README, this board.
@@ -20,6 +21,8 @@ Protocol: /Users/jay/apps/EFFORT-LOG-PROTOCOL.md (canonical). Live board: this f
 - (none)
 
 ## Changelog of this log
+- 2026-08-25 — CURSOR opened Personal-Site PR #22 (visitor blurbs + CL/Fleet icons).
+- 2026-08-25 — CURSOR claimed Designer leftover UX (visitor blurbs + icons).
 - 2026-08-25 — CURSOR opened Personal-Site PR #19 (Datadog logs + APM + RUM).
 - 2026-08-22 — CURSOR claimed Vercel Web Analytics (board `36573226`).
 - 2026-08-22 — GROK claimed personal Hobby Vercel + backup handoff (board `3a5fa02c`).
