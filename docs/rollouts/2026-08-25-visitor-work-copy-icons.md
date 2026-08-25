@@ -39,7 +39,9 @@ rg -n "icon: \"/app-icons/(cl|fleet)\\.png\"" site/src/lib/site.ts
 ```
 
 Local `cd site && npm run dev` — Work cards show visitor copy and both
-new icons.  No CL / FL badges.
+new icons.  No CL / FL badges.  Desktop and 390px mobile checked.
+Terms of Service and Activity still load.  Datadog fail-closed console
+errors are the existing #19 local-without-keys behavior.
 
 ## Next Steps & Blockers
 
