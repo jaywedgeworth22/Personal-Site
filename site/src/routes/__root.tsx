@@ -6,6 +6,7 @@ import { CreatedWithGrokBanner } from "@/components/created-with-grok-banner";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { TopoBackground } from "@/components/topo-background";
+import { DatadogRum } from "@/lib/datadog/DatadogRum";
 import { AppErrorComponent } from "@/lib/error-component";
 import { site } from "@/lib/site";
 import appCss from "@/styles.css?url";
@@ -68,6 +69,7 @@ function RootComponent() {
   return (
     <RootDocument>
       <QueryClientProvider client={queryClient}>
+        <DatadogRum />
         <CreatedWithGrokBanner />
         <TopoBackground />
         <div className="relative z-10">

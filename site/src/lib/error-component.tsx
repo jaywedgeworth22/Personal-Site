@@ -1,7 +1,14 @@
 import type { ErrorComponentProps } from "@tanstack/react-router";
 import { TriangleAlert } from "lucide-react";
+import { useEffect } from "react";
 
 export function AppErrorComponent({ error }: ErrorComponentProps) {
+  useEffect(() => {
+    void import("@/lib/datadog/rum").then((mod) => {
+      mod.reportVisibleError(error);
+    });
+  }, [error]);
+
   return (
     <main
       className={
