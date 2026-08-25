@@ -150,6 +150,27 @@ Zone: `jaywedgeworth.com` on Cloudflare account **Usage.Jays.Services**.
 Usage.Jays.Services Global API Key (`CLOUDFLARE_JAY_API_KEY` +
 `mail@jays.services`). Never print those values.
 
+## Datadog (existing account, no new spend)
+
+Logs + APM + RUM on the existing Datadog org (`us5.datadoghq.com`).  Reuse
+env vars already in the fleet.  Do not invent keys in git.  Production
+(`VERCEL_ENV=production`) and `DD_FAIL_CLOSED=1` fail closed if keys are
+missing.  Do not replace Sentry or PagerDuty.  Do not hide rendered errors.
+
+| Name | Used for |
+|------|----------|
+| `DD_API_KEY` (alias `DATADOG_API_KEY`) | Server logs + agentless APM |
+| `DD_SITE` | Intake site (existing: `us5.datadoghq.com`) |
+| `DD_APPLICATION_ID` | Existing RUM application (public) |
+| `DD_CLIENT_TOKEN` | Existing RUM / browser logs token (public) |
+| `DD_SERVICE` | Default `personal-site` |
+| `DD_ENV` | Default `VERCEL_ENV` / `NODE_ENV` |
+| `DD_VERSION` | Default `VERCEL_GIT_COMMIT_SHA` |
+| `DD_AGENT_HOST` / `DD_TRACE_AGENT_PORT` | Optional local Agent (Coolify).  Absent on Vercel → agentless |
+
+RUM Session Replay stays at 0.  Prod APM sample rate is 0.2.  Code:
+`site/src/lib/datadog/`.  Verify: `node scripts/verify-datadog.mjs`.
+
 ## Secrets
 
 No Infisical project yet. `~/.secrets/` is handoff-only. Never paste secrets

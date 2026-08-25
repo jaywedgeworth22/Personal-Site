@@ -15,6 +15,10 @@ Protocol: /Users/jay/apps/EFFORT-LOG-PROTOCOL.md (canonical). Live board: this f
 
 ## Completed
 - **2026-08-25 — AG — COMPLETED — Add Autorotate and ContactLogo portfolio work cards (branch ag/portfolio-autorotate-and-contactlogo).**  Updated site.ts and static/index.html with Autorotate (dynamic secret rotation, native macOS/iOS, ar.png) and ContactLogo.  Personal-Site itself excluded from portfolio per owner spec.
+- **2026-08-25 — CURSOR — COMPLETED — Designer leftover UX (visitor blurbs + CL/Fleet icons).**  PR #22.  Copy and icons only.  Datadog #19 untouched.  No deploy.
+- **2026-08-25 — CURSOR — COMPLETED — Datadog logs + APM + RUM.**  PR #19.  Existing Datadog account.  Fail closed if keys missing.  Replay off.  Sentry / PagerDuty unchanged.
+- **2026-08-22 — CURSOR — COMPLETED — Vercel Web Analytics.**  `@vercel/analytics/react` in `site/src/routes/__root.tsx`.  PR #17.
+- **2026-08-20 — CURSOR — COMPLETED — Public work list copy matches current apps.**  Socratic Trade uses Coolify / socratictrade.com wording from that README.  Congress.Trade names congress.trade.  DealDex and ContactLogo cards added.  This site still deploys Grok to Vercel behind Cloudflare.  Docs: STATUS, rollout `2026-08-20-work-list-copy`, README, this board.
 - **2026-08-14 — GROK — COMPLETED — Onboard Personal-Site as a fleet app + About copy "included" (PR #1).**  AGENTS, board, static CI, effort-issues-sync.  Snapshot uses "Earlier work included".  Live Vercel project is not on the fleet MCP team, so production HTML is unchanged.
 
 ## In Progress
@@ -24,7 +28,13 @@ Protocol: /Users/jay/apps/EFFORT-LOG-PROTOCOL.md (canonical). Live board: this f
 - (none)
 
 ## Changelog of this log
+<<<<<<< HEAD
 - 2026-08-22 — CURSOR deployed Vercel Web Analytics PR #17 (board `36573226`).
+=======
+- 2026-08-25 — CURSOR opened Personal-Site PR #22 (visitor blurbs + CL/Fleet icons).
+- 2026-08-25 — CURSOR claimed Designer leftover UX (visitor blurbs + icons).
+- 2026-08-25 — CURSOR opened Personal-Site PR #19 (Datadog logs + APM + RUM).
+>>>>>>> origin/main
 - 2026-08-22 — CURSOR claimed Vercel Web Analytics (board `36573226`).
 - 2026-08-22 — GROK claimed personal Hobby Vercel + backup handoff (board `3a5fa02c`).
 - 2026-08-14 — GROK deployed doximity view-profile retarget (live 301 verified).

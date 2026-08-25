@@ -2,6 +2,10 @@ import { createRouter } from "@tanstack/react-router";
 import { routeTree } from "./routeTree.gen";
 import { AppErrorComponent } from "./lib/error-component";
 
+if (import.meta.env.SSR) {
+  void import("./lib/datadog/server.server");
+}
+
 export function getRouter() {
   const router = createRouter({
     routeTree,

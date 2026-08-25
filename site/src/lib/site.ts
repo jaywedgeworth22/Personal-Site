@@ -47,7 +47,7 @@ export const site = {
       key: "st",
       name: "Socratic Trade",
       blurb:
-        "Next.js agentic trading console for real broker accounts.  Production at socratictrade.com (Coolify).",
+        "A trading console for real broker accounts.  Live at socratictrade.com.",
       href: "https://github.com/jaywedgeworth22/Socratic.Trade",
       tags: ["TypeScript", "Agents", "Markets", "iOS"],
       icon: "/app-icons/st.png",
@@ -56,7 +56,7 @@ export const site = {
       key: "ct",
       name: "Congress.Trade",
       blurb:
-        "Public dashboard and APIs for US congressional STOCK Act trade disclosures.  Web at congress.trade, plus iOS.",
+        "A public dashboard of STOCK Act disclosures from the House, Senate, and Executive Branch.  Web at congress.trade, plus iOS.",
       href: "https://github.com/jaywedgeworth22/Congress.Trade",
       tags: ["Markets", "Data", "Web"],
       icon: "/app-icons/ct.png",
@@ -65,7 +65,7 @@ export const site = {
       key: "um",
       name: "Usage Monitor",
       blurb:
-        "Tracks usage, balances, credits, and costs across 30+ API providers.  Web at usage.jays.services, plus iOS.",
+        "Tracks usage, balances, credits, and costs across the services you use.  Web at usage.jays.services, plus iOS.",
       href: "https://github.com/jaywedgeworth22/Usage-Monitor",
       tags: ["Ops", "Billing", "Dashboard", "iOS"],
       icon: "/app-icons/um.png",
@@ -74,7 +74,7 @@ export const site = {
       key: "dd",
       name: "DealDex",
       blurb:
-        "Pokémon listing desk.  Scan eBay and Mercari Buy It Now singles, then score asks against TCGPlayer and other desks.  Native Android and iOS.  Web at dealdex.online.",
+        "A Pokémon listing desk.  Scan eBay and Mercari Buy It Now singles, then score asks against TCGPlayer and other marketplaces.  Native Android and iOS.  Web at dealdex.net.",
       href: "https://github.com/jaywedgeworth22/DealDex",
       tags: ["Markets", "Android", "iOS", "Web"],
       icon: "/app-icons/dd.png",
@@ -92,17 +92,19 @@ export const site = {
       key: "cl",
       name: "ContactLogo",
       blurb:
-        "Brand icons for your address book.  Review-first logo matching for contacts on macOS, iOS, and web.  Site at contactlogo.grok.me.",
+        "Brand icons for your address book.  You review each match before it is written.  Available on macOS, iOS, and the web.  Site at contactlogo.com.",
       href: "https://github.com/jaywedgeworth22/ContactLogo",
       tags: ["macOS", "iOS", "Web"],
+      icon: "/app-icons/cl.png",
     },
     {
       key: "fleet",
       name: "AI Fleet Coordinator",
       blurb:
-        "Protocols, digests, and calendars for a multi-agent engineering team: effort board, safe landings, daily activity site.",
+        "A public daily log of the AI coding team that builds the apps above.",
       href: "https://github.com/jaywedgeworth22/ai-fleet-coordinator",
       tags: ["Agents", "CI", "Ops"],
+      icon: "/app-icons/fleet.png",
     },
   ] satisfies Project[],
   appIcons: {
@@ -111,6 +113,8 @@ export const site = {
     UM: "/app-icons/um.png",
     DD: "/app-icons/dd.png",
     AR: "/app-icons/ar.png",
+    CL: "/app-icons/cl.png",
+    fleet: "/app-icons/fleet.png",
   } as const,
   media: {
     sketchfab:

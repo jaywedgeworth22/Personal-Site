@@ -2,7 +2,7 @@
 
 Canonical repository for **[jays.services](https://jays.services)** and **[jaywedgeworth.com](https://jaywedgeworth.com)**.
 
-Public work on the site is Socratic Trade, Congress.Trade, Usage Monitor, DealDex, ContactLogo, and AI Fleet Coordinator.  Crest and BadgeBook combined into ContactLogo (ContactLogo repo).  Production is the owner's personal Vercel Hobby team (Jay's Services / `jayw`), GitHub `main` → `site/`, behind Cloudflare.
+Public work on the site is Socratic Trade, Congress.Trade, Usage Monitor, DealDex, Autorotate, ContactLogo, and AI Fleet Coordinator.  Crest and BadgeBook combined into ContactLogo (`jaywedgeworth22/ContactLogo`, site contactlogo.com).  This personal site deploys from GitHub `main` → `site/`, behind Cloudflare.
 
 ## Layout
 
@@ -16,6 +16,14 @@ Public work on the site is Socratic Trade, Congress.Trade, Usage Monitor, DealDe
 ## Live deploy
 
 The production site is the Vercel project **personal-site** on team **Jay's Services** (`jayw`), linked to this GitHub repo, root directory `site/`.  Domains `jays.services` / `jaywedgeworth.com` stay on Cloudflare in front.  Do not publish production from the xAI Grok builder.
+
+## Observability
+
+Datadog logs, APM, and RUM use the **existing** Datadog account.  Attach the
+already-created env vars on the Vercel `personal-site` project (`DD_API_KEY`,
+`DD_SITE`, `DD_APPLICATION_ID`, `DD_CLIENT_TOKEN`).  Production fails closed
+if those are missing.  Do not commit secret values.  Sentry and PagerDuty are
+unchanged.
 
 ## Local
 
