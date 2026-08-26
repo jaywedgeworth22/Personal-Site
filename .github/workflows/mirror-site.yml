@@ -37,19 +37,27 @@ jobs:
           # Restore updated app icons from git so they aren't overwritten by outdated live site assets
           git checkout HEAD -- static/app-icons/
 
-          # Live Vercel can lag this repo. Keep landed About tense + Doximity view URL.
+          # Live Vercel can lag this repo. Keep landed About tense + Doximity view URL + project blurbs.
           python3 - <<'PY'
           from pathlib import Path
-          old_about = "Earlier work includes "
-          new_about = "Earlier work included "
-          old_dox = "https://www.doximity.com/cv/jaywedgeworth"
-          new_dox = "https://www.doximity.com/profiles/3cb95815-2fd1-4985-94e5-3d6f932283bf/view"
+          replacements = [
+              ("Earlier work includes ", "Earlier work included "),
+              ("https://www.doximity.com/cv/jaywedgeworth", "https://www.doximity.com/profiles/3cb95815-2fd1-4985-94e5-3d6f932283bf/view"),
+              ("Local-first agentic trading dashboard with multi-user workflows, broker adapters, SEC/RAG research, and plan-tier data controls.", "A trading console for real broker accounts.  Live at SocraticTrade.com."),
+              ("Real-time disclosure tracking for Congressional and Executive stock trading.", "A public dashboard of STOCK Act disclosures from the House, Senate, and Executive Branch.  Web at Congress.Trade, plus iOS."),
+              ("AI cost, token, and quota monitoring for multi-agent fleets.", "Tracks usage, balances, credits, and costs across the services you use.  Web at usage.jays.services, plus iOS."),
+              ("Pokémon listing desk for finding mispriced cards on eBay and Mercari.", "A Pokémon listing desk.  Scan eBay and Mercari Buy It Now singles, then score asks against TCGPlayer and other marketplaces.  Native Android and iOS.  Web at DealDex.net."),
+              ("Dynamic secret rotation and cryptographic credential lifecycle manager.", "Dynamic secret rotation and cryptographic credential lifecycle manager across clouds and local keychains.  Native macOS and iOS.  Web at Autorotate.Codes."),
+              ("Address book logo enricher with human-in-the-loop review.", "Brand icons for your address book.  You review each match before it is written.  Available on macOS, iOS, and the web.  Site at ContactLogo.com."),
+          ]
           root = Path("static")
           if not root.is_dir():
               raise SystemExit(0)
           for path in list(root.rglob("*.html")) + list(root.rglob("*.js")):
               text = path.read_text(errors="replace")
-              updated = text.replace(old_about, new_about).replace(old_dox, new_dox)
+              updated = text
+              for old, new in replacements:
+                  updated = updated.replace(old, new)
               if updated != text:
                   path.write_text(updated)
                   print("preserved copy in", path)
