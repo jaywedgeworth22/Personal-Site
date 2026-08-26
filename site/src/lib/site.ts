@@ -5,6 +5,7 @@ export type Project = {
   href: string;
   tags: readonly string[];
   icon?: string;
+  acronym?: string;
 };
 
 export const site = {
@@ -104,6 +105,7 @@ export const site = {
         "Shared TypeScript contracts, Zod schemas, and utilities for Congress.Trade and Socratic Trade cross-app integration.",
       href: "https://github.com/jaywedgeworth22/congress-trading-shared",
       tags: ["TypeScript", "Zod", "Cross-App", "Package"],
+      acronym: "CTS",
     },
     {
       key: "fleet",

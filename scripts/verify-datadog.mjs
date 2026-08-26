@@ -43,6 +43,9 @@ mustMatch("site/src/lib/datadog/fail-closed.ts", /DD_APPLICATION_ID/);
 mustMatch("site/src/lib/datadog/fail-closed.ts", /DD_CLIENT_TOKEN/);
 mustMatch("site/src/lib/datadog/rum.ts", /@datadog\/browser-rum/);
 mustMatch("site/src/lib/datadog/rum.ts", /sessionReplaySampleRate: 0/);
+mustNotMatch("site/src/lib/datadog/rum.ts", /throw new Error\(datadogFailClosedMessage/);
+mustNotMatch("site/src/lib/datadog/fail-closed.ts", /throw new Error\(datadogFailClosedMessage/);
+mustNotMatch("site/src/lib/datadog/server.server.ts", /if \(isDatadogRequired\(\)\) throw/);
 mustMatch("site/src/lib/datadog/server.server.ts", /dd-trace/);
 mustMatch("site/src/lib/datadog/server.server.ts", /agentless/);
 mustMatch("site/src/routes/__root.tsx", /DatadogRum/);
@@ -82,14 +85,11 @@ execFileSync(
       throw new Error("complete env should have no missing keys");
     }
 
-    let threw = false;
-    try {
-      assertDatadogKeysOrThrow({ VERCEL_ENV: "production" });
-    } catch (err) {
-      threw = String(err).includes("Datadog fail-closed");
-    }
-    if (!threw) throw new Error("production without keys must throw fail-closed");
-
+    // Production without keys must stay dark — never throw.  #19's
+    // Vercel Production deploy failed because the old assert aborted
+    // vite build when VERCEL_ENV=production and DD_* were unset.
+    assertDatadogKeysOrThrow({ VERCEL_ENV: "production" });
+    assertDatadogKeysOrThrow({ DD_FAIL_CLOSED: "1" });
     assertDatadogKeysOrThrow({});
     console.log("datadog fail-closed unit checks ok");
     `,

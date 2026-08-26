@@ -8,10 +8,18 @@ export function DatadogRum() {
   const pathname = useRouterState({ select: (state) => state.location.pathname });
 
   useEffect(() => {
-    void import("./rum").then((mod) => {
-      mod.initDatadogRum();
-      mod.startDatadogView(pathname);
-    });
+    void import("./rum")
+      .then((mod) => {
+        try {
+          mod.initDatadogRum();
+          mod.startDatadogView(pathname);
+        } catch (err) {
+          console.error("Datadog RUM init failed:", err);
+        }
+      })
+      .catch((err) => {
+        console.error("Datadog RUM load failed:", err);
+      });
   }, [pathname]);
 
   return null;

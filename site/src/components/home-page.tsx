@@ -107,7 +107,7 @@ export function HomePage() {
                       />
                     ) : (
                       <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-[var(--radius-sm)] border border-border bg-bg-subtle text-xs font-semibold tracking-wide text-fg-muted">
-                        {p.key.slice(0, 3).toUpperCase()}
+                        {p.acronym ?? p.key.slice(0, 3).toUpperCase()}
                       </span>
                     )}
                     <h3 className="text-lg font-medium tracking-tight text-fg">{p.name}</h3>
