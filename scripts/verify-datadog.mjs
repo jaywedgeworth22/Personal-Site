@@ -85,6 +85,16 @@ execFileSync(
       throw new Error("complete env should have no missing keys");
     }
 
+    const personalSitePrefixed = {
+      PERSONALSITE_DD_API_KEY: "placeholder-not-a-real-key",
+      PERSONALSITE_DD_SITE: "us5.datadoghq.com",
+      PERSONALSITE_DD_APPLICATION_ID: "app-id",
+      PERSONALSITE_DD_CLIENT_TOKEN: "client-token",
+    };
+    if (missingDatadogKeys(personalSitePrefixed).length !== 0) {
+      throw new Error("PERSONALSITE_ prefixed env should have no missing keys");
+    }
+
     // Production without keys must stay dark — never throw.  #19's
     // Vercel Production deploy failed because the old assert aborted
     // vite build when VERCEL_ENV=production and DD_* were unset.

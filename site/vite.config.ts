@@ -10,6 +10,8 @@ import {
   datadogService,
   datadogSite,
   datadogVersion,
+  readApplicationId,
+  readClientToken,
 } from "./src/lib/datadog/fail-closed.ts";
 
 function datadogPublicDefine(): Record<string, string> {
@@ -19,8 +21,8 @@ function datadogPublicDefine(): Record<string, string> {
   assertDatadogKeysOrThrow(process.env);
   const failClosed = production || process.env.DD_FAIL_CLOSED === "1";
   return {
-    "import.meta.env.DD_APPLICATION_ID": JSON.stringify(process.env.DD_APPLICATION_ID ?? ""),
-    "import.meta.env.DD_CLIENT_TOKEN": JSON.stringify(process.env.DD_CLIENT_TOKEN ?? ""),
+    "import.meta.env.DD_APPLICATION_ID": JSON.stringify(readApplicationId(process.env)),
+    "import.meta.env.DD_CLIENT_TOKEN": JSON.stringify(readClientToken(process.env)),
     "import.meta.env.DD_SITE": JSON.stringify(datadogSite(process.env)),
     "import.meta.env.DD_SERVICE": JSON.stringify(datadogService(process.env)),
     "import.meta.env.DD_ENV": JSON.stringify(datadogEnvName(process.env)),

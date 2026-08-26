@@ -21,7 +21,19 @@ export const REQUIRED_DATADOG_KEYS = [
 export type DatadogEnv = Record<string, string | undefined>;
 
 export function readApiKey(env: DatadogEnv = process.env): string {
-  return (env.DD_API_KEY || env.DATADOG_API_KEY || "").trim();
+  return (env.DD_API_KEY || env.DATADOG_API_KEY || env.PERSONALSITE_DD_API_KEY || "").trim();
+}
+
+export function readSite(env: DatadogEnv = process.env): string {
+  return (env.DD_SITE || env.PERSONALSITE_DD_SITE || "").trim();
+}
+
+export function readApplicationId(env: DatadogEnv = process.env): string {
+  return (env.DD_APPLICATION_ID || env.PERSONALSITE_DD_APPLICATION_ID || "").trim();
+}
+
+export function readClientToken(env: DatadogEnv = process.env): string {
+  return (env.DD_CLIENT_TOKEN || env.PERSONALSITE_DD_CLIENT_TOKEN || "").trim();
 }
 
 export function isDatadogRequired(env: DatadogEnv = process.env): boolean {
@@ -31,9 +43,9 @@ export function isDatadogRequired(env: DatadogEnv = process.env): boolean {
 export function missingDatadogKeys(env: DatadogEnv = process.env): string[] {
   const missing: string[] = [];
   if (!readApiKey(env)) missing.push("DD_API_KEY");
-  if (!env.DD_SITE?.trim()) missing.push("DD_SITE");
-  if (!env.DD_APPLICATION_ID?.trim()) missing.push("DD_APPLICATION_ID");
-  if (!env.DD_CLIENT_TOKEN?.trim()) missing.push("DD_CLIENT_TOKEN");
+  if (!readSite(env)) missing.push("DD_SITE");
+  if (!readApplicationId(env)) missing.push("DD_APPLICATION_ID");
+  if (!readClientToken(env)) missing.push("DD_CLIENT_TOKEN");
   return missing;
 }
 
@@ -59,17 +71,28 @@ export function assertDatadogKeysOrThrow(env: DatadogEnv = process.env): void {
 }
 
 export function datadogService(env: DatadogEnv = process.env): string {
-  return env.DD_SERVICE?.trim() || DD_SERVICE_DEFAULT;
+  return env.DD_SERVICE?.trim() || env.PERSONALSITE_DD_SERVICE?.trim() || DD_SERVICE_DEFAULT;
 }
 
 export function datadogEnvName(env: DatadogEnv = process.env): string {
-  return env.DD_ENV?.trim() || env.VERCEL_ENV?.trim() || env.NODE_ENV?.trim() || "development";
+  return (
+    env.DD_ENV?.trim() ||
+    env.PERSONALSITE_DD_ENV?.trim() ||
+    env.VERCEL_ENV?.trim() ||
+    env.NODE_ENV?.trim() ||
+    "development"
+  );
 }
 
 export function datadogVersion(env: DatadogEnv = process.env): string {
-  return env.DD_VERSION?.trim() || env.VERCEL_GIT_COMMIT_SHA?.trim() || "unknown";
+  return (
+    env.DD_VERSION?.trim() ||
+    env.PERSONALSITE_DD_VERSION?.trim() ||
+    env.VERCEL_GIT_COMMIT_SHA?.trim() ||
+    "unknown"
+  );
 }
 
 export function datadogSite(env: DatadogEnv = process.env): string {
-  return env.DD_SITE?.trim() || DD_SITE_EXISTING;
+  return readSite(env);
 }

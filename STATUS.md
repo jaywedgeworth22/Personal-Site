@@ -1,5 +1,6 @@
 # Status
 
+- 2026-08-26: Add PERSONALSITE_DD_* prefixed key support and sync all app Datadog secrets into the Infisical shared workspace (shared-at-ct).
 - 2026-08-26: DealDex logo updated with official 1024px icon.  Added CTS acronym for Congress Trading Shared fallback.  Fixed Datadog fail-closed throwing on production builds so Vercel Production deploys successfully.
 - 2026-08-25: Project domains, hyperlinking, and top-right card buttons.  Project blurbs format domain names in exact PascalCase/canonical forms (DealDex.net, Autorotate.Codes, Congress.Trade, SocraticTrade.com, ContactLogo.com, usage.jays.services).  Domain names in descriptions are rendered as blue un-underlined hyperlinks.  Project cards use top-right action buttons with a right arrow and GitHub logo.  Congress Trading Shared added to project list.  Static snapshot synchronized.
 - 2026-08-25: Designer leftover UX — visitor work blurbs + ContactLogo / Fleet
