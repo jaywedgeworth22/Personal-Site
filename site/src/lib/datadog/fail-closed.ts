@@ -46,15 +46,15 @@ export function datadogFailClosedMessage(missing: string[]): string {
 }
 
 /**
- * Production (or DD_FAIL_CLOSED=1) refuses to start without the existing
- * Datadog keys.  Local / CI / preview skip so `npm run dev` and GitHub
- * verify still work without secrets.
+ * Missing keys stay dark.  Do not throw: #19's production deploy failed
+ * because vite.config called this under VERCEL_ENV=production while the
+ * Vercel project did not have the full DD_* set.  Callers skip init.
  */
 export function assertDatadogKeysOrThrow(env: DatadogEnv = process.env): void {
   if (!isDatadogRequired(env)) return;
   const missing = missingDatadogKeys(env);
   if (missing.length > 0) {
-    throw new Error(datadogFailClosedMessage(missing));
+    console.warn(datadogFailClosedMessage(missing));
   }
 }
 

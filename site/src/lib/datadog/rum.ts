@@ -15,9 +15,9 @@ export function initDatadogRum(): void {
   if (!cfg.site) missing.push("DD_SITE");
 
   if (missing.length > 0) {
-    if (cfg.failClosed) {
-      throw new Error(datadogFailClosedMessage(missing));
-    }
+    // Stay dark.  Throwing in the root useEffect is an unhandled
+    // rejection on every page when failClosed is baked and RUM is
+    // incomplete (same class as Usage-Monitor #1342).
     console.error(datadogFailClosedMessage(missing));
     return;
   }
