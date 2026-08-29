@@ -47,6 +47,8 @@ const REPO_MAP: Record<string, RepoCode> = {
   fleet: "fleet",
   SHARED: "shared",
   FLEET: "fleet",
+  CTS: "shared",
+  AFL: "fleet",
 };
 
 const SECTION_MAP: Record<string, DigestSection["kind"]> = {
@@ -72,7 +74,7 @@ function parseItem(line: string): DigestItem | null {
   const href = linkMatch?.[2];
   const num = linkMatch?.[1];
 
-  const repoMatch = raw.match(/\*\*(ST|CT|UM|DD|AR|CL|PS|shared|fleet|SHARED|FLEET)\*\*/i);
+  const repoMatch = raw.match(/\*\*(ST|CT|UM|DD|AR|CL|PS|shared|fleet|SHARED|FLEET|CTS|AFL)\*\*/i);
   const repoKey = repoMatch?.[1]?.toUpperCase() ?? "other";
   const repo = REPO_MAP[repoKey] ?? REPO_MAP[repoMatch?.[1] ?? ""] ?? "other";
 
@@ -84,7 +86,7 @@ function parseItem(line: string): DigestItem | null {
   }
 
   let title = raw
-    .replace(/\*\*(ST|CT|UM|DD|AR|CL|PS|shared|fleet|SHARED|FLEET)\*\*/i, "")
+    .replace(/\*\*(ST|CT|UM|DD|AR|CL|PS|shared|fleet|SHARED|FLEET|CTS|AFL)\*\*/i, "")
     .replace(/`[^`]+`/g, "")
     .replace(/\[#\d+\]\([^)]+\)/g, num ? `#${num}` : "")
     .replace(/_\(by [^)]+\)_/g, "")
@@ -167,11 +169,11 @@ export function parseFleetDigest(
 export function repoLabel(code: RepoCode): string {
   switch (code) {
     case "ST":
-      return "Socratic Trade";
+      return "Socratic.Trade";
     case "CT":
       return "Congress.Trade";
     case "UM":
-      return "Usage Monitor";
+      return "Usage-Monitor";
     case "DD":
       return "DealDex";
     case "AR":
@@ -179,11 +181,11 @@ export function repoLabel(code: RepoCode): string {
     case "CL":
       return "ContactLogo";
     case "PS":
-      return "Personal Site";
+      return "Personal-Site";
     case "shared":
-      return "Shared";
+      return "congress-trading-shared";
     case "fleet":
-      return "Fleet";
+      return "ai-fleet-coordinator";
     default:
       return "Repo";
   }
