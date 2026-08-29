@@ -46,9 +46,9 @@ export const site = {
   projects: [
     {
       key: "st",
-      name: "Socratic Trade",
+      name: "Socratic.Trade",
       blurb:
-        "A trading console for real broker accounts.  Live at SocraticTrade.com.",
+        "Agentic trading console for Alpaca, Tradier, and Robinhood — real broker paper/sandbox and live accounts.  Live at SocraticTrade.com, plus iOS.",
       href: "https://github.com/jaywedgeworth22/Socratic.Trade",
       tags: ["TypeScript", "Agents", "Markets", "iOS"],
       icon: "/app-icons/st.png",
@@ -57,16 +57,16 @@ export const site = {
       key: "ct",
       name: "Congress.Trade",
       blurb:
-        "A public dashboard of STOCK Act disclosures from the House, Senate, and Executive Branch.  Web at Congress.Trade, plus iOS.",
+        "Public STOCK Act disclosures from the House, Senate, and Executive Branch.  Live at Congress.Trade, plus iOS.",
       href: "https://github.com/jaywedgeworth22/Congress.Trade",
-      tags: ["Markets", "Data", "Web"],
+      tags: ["Markets", "Data", "Web", "iOS"],
       icon: "/app-icons/ct.png",
     },
     {
       key: "um",
-      name: "Usage Monitor",
+      name: "Usage-Monitor",
       blurb:
-        "Tracks usage, balances, credits, and costs across the services you use.  Web at usage.jays.services, plus iOS.",
+        "Tracks API usage, balances, credits, and costs via poller snapshots and OTLP metrics.  Live at usage.jays.services, plus iOS.",
       href: "https://github.com/jaywedgeworth22/Usage-Monitor",
       tags: ["Ops", "Billing", "Dashboard", "iOS"],
       icon: "/app-icons/um.png",
@@ -75,7 +75,7 @@ export const site = {
       key: "dd",
       name: "DealDex",
       blurb:
-        "A Pokémon listing desk.  Scan eBay and Mercari Buy It Now singles, then score asks against TCGPlayer and other marketplaces.  Native Android and iOS.  Web at DealDex.net.",
+        "Pokémon listing desk scoring eBay and Mercari Buy It Now singles against TCGPlayer and other marketplaces.  Native Android and iOS, web at DealDex.net.",
       href: "https://github.com/jaywedgeworth22/DealDex",
       tags: ["Markets", "Android", "iOS", "Web"],
       icon: "/app-icons/dd.png",
@@ -84,7 +84,7 @@ export const site = {
       key: "ar",
       name: "Autorotate",
       blurb:
-        "Dynamic secret rotation and cryptographic credential lifecycle manager across clouds and local keychains.  Native macOS and iOS.  Web at Autorotate.Codes.",
+        "Zero-plaintext multi-platform secret rotation and credential lifecycle across web, iOS, macOS, and Android.  Web at Autorotate.Codes.",
       href: "https://github.com/jaywedgeworth22/Autorotate",
       tags: ["Security", "macOS", "iOS", "Crypto"],
       icon: "/app-icons/ar.png",
@@ -93,25 +93,25 @@ export const site = {
       key: "cl",
       name: "ContactLogo",
       blurb:
-        "Brand icons for your address book.  You review each match before it is written.  Available on macOS, iOS, and the web.  Site at ContactLogo.com.",
+        "Brand icons for your address book with review-first logo matching.  Native macOS, iOS, Android, and web at ContactLogo.com.",
       href: "https://github.com/jaywedgeworth22/ContactLogo",
-      tags: ["macOS", "iOS", "Web"],
+      tags: ["macOS", "iOS", "Android", "Web"],
       icon: "/app-icons/cl.png",
     },
     {
       key: "shared",
-      name: "Congress Trading Shared",
+      name: "congress-trading-shared",
       blurb:
-        "Shared TypeScript contracts, Zod schemas, and utilities for Congress.Trade and Socratic Trade cross-app integration.",
+        "Shared TypeScript contracts, Zod schemas, constants, and utilities for Congress.Trade ↔ Socratic.Trade cross-app integration.",
       href: "https://github.com/jaywedgeworth22/congress-trading-shared",
       tags: ["TypeScript", "Zod", "Cross-App", "Package"],
       acronym: "CTS",
     },
     {
       key: "fleet",
-      name: "AI Fleet Coordinator",
+      name: "ai-fleet-coordinator",
       blurb:
-        "A public daily log of the AI coding team that builds the apps above.",
+        "Mac-hosted multi-agent coding fleet coordination: live board at mac.jays.services, Slack #agent-sync, daily activity digests at activity.jays.services.",
       href: "https://github.com/jaywedgeworth22/ai-fleet-coordinator",
       tags: ["Agents", "CI", "Ops"],
       icon: "/app-icons/fleet.png",
@@ -124,6 +124,7 @@ export const site = {
     DD: "/app-icons/dd.png",
     AR: "/app-icons/ar.png",
     CL: "/app-icons/cl.png",
+    PS: "/app-icons/ps.png",
     fleet: "/app-icons/fleet.png",
   } as const,
   media: {
