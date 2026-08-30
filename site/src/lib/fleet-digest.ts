@@ -6,6 +6,10 @@ export type RepoCode =
   | "AR"
   | "CL"
   | "PS"
+  | "CTS"
+  | "AFC"
+  | "BF"
+  | "OPS"
   | "shared"
   | "fleet"
   | "other";
@@ -43,12 +47,15 @@ const REPO_MAP: Record<string, RepoCode> = {
   AR: "AR",
   CL: "CL",
   PS: "PS",
-  shared: "shared",
-  fleet: "fleet",
-  SHARED: "shared",
-  FLEET: "fleet",
-  CTS: "shared",
-  AFL: "fleet",
+  CTS: "CTS",
+  AFC: "AFC",
+  AFL: "AFC",
+  BF: "BF",
+  OPS: "OPS",
+  shared: "CTS",
+  fleet: "AFC",
+  SHARED: "CTS",
+  FLEET: "AFC",
 };
 
 const SECTION_MAP: Record<string, DigestSection["kind"]> = {
@@ -74,7 +81,7 @@ function parseItem(line: string): DigestItem | null {
   const href = linkMatch?.[2];
   const num = linkMatch?.[1];
 
-  const repoMatch = raw.match(/\*\*(ST|CT|UM|DD|AR|CL|PS|shared|fleet|SHARED|FLEET|CTS|AFL)\*\*/i);
+  const repoMatch = raw.match(/\*\*(ST|CT|UM|DD|AR|CL|PS|CTS|AFC|AFL|BF|OPS|shared|fleet|SHARED|FLEET)\*\*/i);
   const repoKey = repoMatch?.[1]?.toUpperCase() ?? "other";
   const repo = REPO_MAP[repoKey] ?? REPO_MAP[repoMatch?.[1] ?? ""] ?? "other";
 
@@ -86,7 +93,7 @@ function parseItem(line: string): DigestItem | null {
   }
 
   let title = raw
-    .replace(/\*\*(ST|CT|UM|DD|AR|CL|PS|shared|fleet|SHARED|FLEET|CTS|AFL)\*\*/i, "")
+    .replace(/\*\*(ST|CT|UM|DD|AR|CL|PS|CTS|AFC|AFL|BF|OPS|shared|fleet|SHARED|FLEET)\*\*/i, "")
     .replace(/`[^`]+`/g, "")
     .replace(/\[#\d+\]\([^)]+\)/g, num ? `#${num}` : "")
     .replace(/_\(by [^)]+\)_/g, "")
@@ -169,23 +176,29 @@ export function parseFleetDigest(
 export function repoLabel(code: RepoCode): string {
   switch (code) {
     case "ST":
-      return "Socratic.Trade";
+      return "Socratic Trade";
     case "CT":
       return "Congress.Trade";
     case "UM":
-      return "Usage-Monitor";
+      return "Usage Monitor";
     case "DD":
-      return "DealDex";
+      return "DealDex.net";
     case "AR":
-      return "Autorotate";
+      return "Autorotate.Codes";
     case "CL":
       return "ContactLogo";
     case "PS":
-      return "Personal-Site";
+      return "Personal Site";
+    case "CTS":
     case "shared":
       return "congress-trading-shared";
+    case "AFC":
     case "fleet":
-      return "ai-fleet-coordinator";
+      return "AI Fleet Coordinator";
+    case "BF":
+      return "BotFleet.app";
+    case "OPS":
+      return "Fleet Ops";
     default:
       return "Repo";
   }
