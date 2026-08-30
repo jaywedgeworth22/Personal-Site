@@ -46,12 +46,13 @@ export const site = {
   projects: [
     {
       key: "st",
-      name: "Socratic.Trade",
+      name: "Socratic Trade",
       blurb:
         "Agentic trading console for Alpaca, Tradier, and Robinhood — real broker paper/sandbox and live accounts.  Live at SocraticTrade.com, plus iOS.",
       href: "https://github.com/jaywedgeworth22/Socratic.Trade",
       tags: ["TypeScript", "Agents", "Markets", "iOS"],
       icon: "/app-icons/st.png",
+      acronym: "ST",
     },
     {
       key: "ct",
@@ -61,33 +62,37 @@ export const site = {
       href: "https://github.com/jaywedgeworth22/Congress.Trade",
       tags: ["Markets", "Data", "Web", "iOS"],
       icon: "/app-icons/ct.png",
+      acronym: "CT",
     },
     {
       key: "um",
-      name: "Usage-Monitor",
+      name: "Usage Monitor",
       blurb:
         "Tracks API usage, balances, credits, and costs via poller snapshots and OTLP metrics.  Live at usage.jays.services, plus iOS.",
       href: "https://github.com/jaywedgeworth22/Usage-Monitor",
       tags: ["Ops", "Billing", "Dashboard", "iOS"],
       icon: "/app-icons/um.png",
+      acronym: "UM",
     },
     {
       key: "dd",
-      name: "DealDex",
+      name: "DealDex.net",
       blurb:
         "Pokémon listing desk scoring eBay and Mercari Buy It Now singles against TCGPlayer and other marketplaces.  Native Android and iOS, web at DealDex.net.",
       href: "https://github.com/jaywedgeworth22/DealDex",
       tags: ["Markets", "Android", "iOS", "Web"],
       icon: "/app-icons/dd.png",
+      acronym: "DD",
     },
     {
       key: "ar",
-      name: "Autorotate",
+      name: "Autorotate.Codes",
       blurb:
         "Zero-plaintext multi-platform secret rotation and credential lifecycle across web, iOS, macOS, and Android.  Web at Autorotate.Codes.",
       href: "https://github.com/jaywedgeworth22/Autorotate",
       tags: ["Security", "macOS", "iOS", "Crypto"],
       icon: "/app-icons/ar.png",
+      acronym: "AR",
     },
     {
       key: "cl",
@@ -97,24 +102,55 @@ export const site = {
       href: "https://github.com/jaywedgeworth22/ContactLogo",
       tags: ["macOS", "iOS", "Android", "Web"],
       icon: "/app-icons/cl.png",
+      acronym: "CL",
+    },
+    {
+      key: "ps",
+      name: "Personal Site",
+      blurb:
+        "Personal portfolio site and live agent activity surface at jays.services.",
+      href: "https://github.com/jaywedgeworth22/Personal-Site",
+      tags: ["TypeScript", "Vite", "Web"],
+      icon: "/app-icons/ps.png",
+      acronym: "PS",
     },
     {
       key: "shared",
       name: "congress-trading-shared",
       blurb:
-        "Shared TypeScript contracts, Zod schemas, constants, and utilities for Congress.Trade ↔ Socratic.Trade cross-app integration.",
+        "Shared TypeScript contracts, Zod schemas, constants, and utilities for cross-app integration (shared dependency).",
       href: "https://github.com/jaywedgeworth22/congress-trading-shared",
       tags: ["TypeScript", "Zod", "Cross-App", "Package"],
       acronym: "CTS",
     },
     {
       key: "fleet",
-      name: "ai-fleet-coordinator",
+      name: "AI Fleet Coordinator",
       blurb:
         "Mac-hosted multi-agent coding fleet coordination: live board at mac.jays.services, Slack #agent-sync, daily activity digests at activity.jays.services.",
       href: "https://github.com/jaywedgeworth22/ai-fleet-coordinator",
       tags: ["Agents", "CI", "Ops"],
       icon: "/app-icons/fleet.png",
+      acronym: "AFC",
+    },
+    {
+      key: "bf",
+      name: "BotFleet.app",
+      blurb:
+        "Agent desktop companion and local runtime manager.  Native macOS and iOS.",
+      href: "https://github.com/jaywedgeworth22/BotFleet",
+      tags: ["macOS", "iOS", "Agents"],
+      icon: "/app-icons/fleet.png",
+      acronym: "BF",
+    },
+    {
+      key: "ops",
+      name: "Fleet Ops",
+      blurb:
+        "Private fleet infrastructure operations, host inventory, and service orchestration.",
+      href: "https://github.com/jaywedgeworth22/fleet-ops",
+      tags: ["Ops", "Infra"],
+      acronym: "OPS",
     },
   ] satisfies Project[],
   appIcons: {
@@ -125,6 +161,10 @@ export const site = {
     AR: "/app-icons/ar.png",
     CL: "/app-icons/cl.png",
     PS: "/app-icons/ps.png",
+    CTS: "/app-icons/fleet.png",
+    AFC: "/app-icons/fleet.png",
+    BF: "/app-icons/fleet.png",
+    OPS: "/app-icons/fleet.png",
     fleet: "/app-icons/fleet.png",
   } as const,
   media: {
