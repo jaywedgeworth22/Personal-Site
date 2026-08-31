@@ -14,6 +14,7 @@ Protocol: /Users/jay/apps/EFFORT-LOG-PROTOCOL.md (canonical). Live board: this f
 - **2026-08-14 — GROK — DEPLOYED — Social short-link URL redirects on jaywedgeworth.com.** Cloudflare Single Redirects (301) + dummy proxied `AAAA 100::`.  doximity → view profile (see row above); facebook/fb → Facebook; instagram/ig → Instagram; x → X; linkedin → LinkedIn `/in/JayWedgeworth`.
 
 ## Completed
+- **2026-08-31 — ANTIGRAVITY — COMPLETED — Add TestFlight Public Beta links across all fleet apps (branch `ag/testflight-links`).**  Added TestFlight badges to project cards and created dedicated TestFlight Public Betas showcase section on `jays.services` for all 10 fleet app beta streams (ContactLogo iOS/macOS, Autorotate iOS/macOS, Socratic Trade iOS, Congress.Trade iOS, Usage Monitor Client/Local, BotFleet iOS/macOS).
 - **2026-08-26 — ANTIGRAVITY — COMPLETED — Add Vercel free feature optimizations (branch `antigravity/vercel-optimizations`).**  Updated `site/vercel.json` with `ignoreCommand` to skip redundant builds on non-site repo edits, immutable 1-year cache headers for build assets, media/font cache-control headers, strict security headers (nosniff, sameorigin, referrer-policy, permissions-policy), clean URLs, and trailing slash normalization.
 - **2026-08-26 — AG — COMPLETED — Add PERSONALSITE_DD_* prefixed key support and sync all app Datadog secrets into Infisical shared workspace (branch ag/infisical-prefixed-keys).**  Wired PERSONALSITE_DD_* key fallbacks in fail-closed.ts and vite.config.ts.  Synchronized Datadog secrets for Personal-Site, ContactLogo, DealDex, and Autorotate into shared-at-ct Infisical workspace.
 - **2026-08-26 — AG — COMPLETED — Update DealDex logo, add CTS acronym, and fix Datadog production deployment (branch ag/dealdex-logo-future-dates-prod-fix).**  Replaced DealDex app icon with official 1024px icon.  Added CTS acronym fallback for Congress Trading Shared.  Fixed assertDatadogKeysOrThrow to prevent aborting Vercel production build when DD_* are unset.
@@ -32,6 +33,7 @@ Protocol: /Users/jay/apps/EFFORT-LOG-PROTOCOL.md (canonical). Live board: this f
 - (none)
 
 ## Changelog of this log
+- 2026-08-31 — AG completed TestFlight Public Beta links across all fleet apps on jays.services (branch ag/testflight-links).
 - 2026-08-26 — AG completed PERSONALSITE_DD_* prefixed key support & Infisical secret sync (PR created).
 - 2026-08-26 — AG completed DealDex logo update, CTS acronym, and Vercel production fix (PR #38).
 - 2026-08-25 — AG completed Project domains, hyperlinks, and GitHub card buttons (PR created).

@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import { site } from "@/lib/site";
 import { FleetActivity } from "@/components/fleet-activity";
 import { HeroNameAnchor } from "@/components/morphing-name";
@@ -60,6 +60,9 @@ export function HomePage() {
             <HeroNameAnchor />
             <div className="flex flex-wrap items-center gap-3">
               <Button asChild>
+                <a href="#betas">TestFlight Betas</a>
+              </Button>
+              <Button asChild variant="secondary">
                 <a href="#activity">View Daily Activities</a>
               </Button>
               <Button asChild variant="secondary">
@@ -139,6 +142,78 @@ export function HomePage() {
                     </span>
                   ))}
                 </div>
+                {"testflight" in p && p.testflight && p.testflight.length > 0 && (
+                  <div className="mt-3.5 flex flex-wrap items-center gap-1.5 border-t border-border/50 pt-3">
+                    <span className="text-xs font-medium text-fg-subtle">TestFlight:</span>
+                    {p.testflight.map((tf) => (
+                      <a
+                        key={tf.url}
+                        href={tf.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 rounded-full border border-[#0071e3]/30 bg-[#0071e3]/10 px-2 py-0.5 text-[11px] font-medium text-[#0071e3] transition-colors hover:border-[#0071e3]/60 hover:bg-[#0071e3]/20 dark:text-[#2997ff]"
+                      >
+                        <span>{tf.platform}</span>
+                        <ExternalLink className="size-2.5" aria-hidden />
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="betas" className="scroll-mt-20">
+        <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-20">
+          <div className="flex flex-col gap-1">
+            <SectionLabel>Public Betas</SectionLabel>
+            <h2 className="text-2xl font-semibold tracking-tight text-fg sm:text-3xl">
+              TestFlight Public Beta Access
+            </h2>
+            <p className="mt-1 text-sm text-fg-muted">
+              {withDoubleSpaces(
+                "Install and test the latest beta releases directly via Apple TestFlight on iOS and macOS.",
+              )}
+            </p>
+          </div>
+
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-2">
+            {site.testflight.map((beta) => (
+              <div
+                key={beta.url}
+                className="flex items-center justify-between gap-4 rounded-[var(--radius-lg)] border border-border bg-bg-elevated/90 p-4 shadow-[var(--shadow-soft)] backdrop-blur-[2px] transition-all hover:border-border-strong"
+              >
+                <div className="flex min-w-0 items-center gap-3">
+                  <img
+                    src={beta.icon}
+                    alt=""
+                    width={40}
+                    height={40}
+                    className="size-10 shrink-0 rounded-[var(--radius-sm)] border border-border bg-bg object-cover shadow-[var(--shadow-soft)]"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div className="min-w-0">
+                    <div className="flex items-center gap-2">
+                      <h3 className="truncate text-base font-medium text-fg">{beta.name}</h3>
+                      <span className="inline-flex shrink-0 items-center rounded-full border border-border bg-bg-subtle px-2 py-0.5 text-[10px] font-semibold text-fg-muted">
+                        {beta.platform}
+                      </span>
+                    </div>
+                    <p className="truncate text-xs text-fg-muted">{beta.blurb}</p>
+                  </div>
+                </div>
+                <a
+                  href={beta.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-[#0071e3]/40 bg-[#0071e3] px-3.5 py-1.5 text-xs font-semibold text-white shadow-xs transition-all hover:bg-[#0077ed] hover:shadow-sm dark:bg-[#0071e3] dark:hover:bg-[#0077ed]"
+                >
+                  <span>Join</span>
+                  <ExternalLink className="size-3" aria-hidden />
+                </a>
               </div>
             ))}
           </div>
