@@ -1,3 +1,8 @@
+export type TestFlightLink = {
+  platform: "iOS" | "macOS" | "Client (iOS)" | "Local (iOS)";
+  url: string;
+};
+
 export type Project = {
   key: string;
   name: string;
@@ -6,6 +11,7 @@ export type Project = {
   tags: readonly string[];
   icon?: string;
   acronym?: string;
+  testflight?: readonly TestFlightLink[];
 };
 
 export const site = {
@@ -53,6 +59,9 @@ export const site = {
       tags: ["TypeScript", "Agents", "Markets", "iOS"],
       icon: "/app-icons/st.png",
       acronym: "ST",
+      testflight: [
+        { platform: "iOS", url: "https://testflight.apple.com/join/nUPgpE4c" },
+      ],
     },
     {
       key: "ct",
@@ -63,6 +72,9 @@ export const site = {
       tags: ["Markets", "Data", "Web", "iOS"],
       icon: "/app-icons/ct.png",
       acronym: "CT",
+      testflight: [
+        { platform: "iOS", url: "https://testflight.apple.com/join/VNUEU6Ge" },
+      ],
     },
     {
       key: "um",
@@ -73,6 +85,10 @@ export const site = {
       tags: ["Ops", "Billing", "Dashboard", "iOS"],
       icon: "/app-icons/um.png",
       acronym: "UM",
+      testflight: [
+        { platform: "Client (iOS)", url: "https://testflight.apple.com/join/KPq42UrC" },
+        { platform: "Local (iOS)", url: "https://testflight.apple.com/join/YXZGGeUs" },
+      ],
     },
     {
       key: "dd",
@@ -93,6 +109,10 @@ export const site = {
       tags: ["Security", "macOS", "iOS", "Crypto"],
       icon: "/app-icons/ar.png",
       acronym: "AR",
+      testflight: [
+        { platform: "iOS", url: "https://testflight.apple.com/join/bZ7vntkJ" },
+        { platform: "macOS", url: "https://testflight.apple.com/join/5yDXA8Vk" },
+      ],
     },
     {
       key: "cl",
@@ -103,6 +123,10 @@ export const site = {
       tags: ["macOS", "iOS", "Android", "Web"],
       icon: "/app-icons/cl.png",
       acronym: "CL",
+      testflight: [
+        { platform: "iOS", url: "https://testflight.apple.com/join/HRzFDeA1" },
+        { platform: "macOS", url: "https://testflight.apple.com/join/xsPB27gf" },
+      ],
     },
     {
       key: "ps",
@@ -142,6 +166,10 @@ export const site = {
       tags: ["macOS", "iOS", "Agents"],
       icon: "/app-icons/fleet.png",
       acronym: "BF",
+      testflight: [
+        { platform: "iOS", url: "https://testflight.apple.com/join/ER6sPNMh" },
+        { platform: "macOS", url: "https://testflight.apple.com/join/cQnDtFse" },
+      ],
     },
     {
       key: "ops",
@@ -167,6 +195,88 @@ export const site = {
     OPS: "/app-icons/fleet.png",
     fleet: "/app-icons/fleet.png",
   } as const,
+  testflight: [
+    {
+      name: "ContactLogo (iOS)",
+      appName: "ContactLogo",
+      platform: "iOS",
+      url: "https://testflight.apple.com/join/HRzFDeA1",
+      icon: "/app-icons/cl.png",
+      blurb: "Brand icons for address book contacts.",
+    },
+    {
+      name: "ContactLogo for Mac",
+      appName: "ContactLogo",
+      platform: "macOS",
+      url: "https://testflight.apple.com/join/xsPB27gf",
+      icon: "/app-icons/cl.png",
+      blurb: "Native macOS menu bar and batch contact logo updater.",
+    },
+    {
+      name: "Autorotate.Codes (iOS)",
+      appName: "Autorotate",
+      platform: "iOS",
+      url: "https://testflight.apple.com/join/bZ7vntkJ",
+      icon: "/app-icons/ar.png",
+      blurb: "Zero-plaintext credential rotation on mobile.",
+    },
+    {
+      name: "Autorotate for Mac",
+      appName: "Autorotate",
+      platform: "macOS",
+      url: "https://testflight.apple.com/join/5yDXA8Vk",
+      icon: "/app-icons/ar.png",
+      blurb: "Native macOS secret manager and rotation client.",
+    },
+    {
+      name: "Socratic Trade (iOS)",
+      appName: "Socratic Trade",
+      platform: "iOS",
+      url: "https://testflight.apple.com/join/nUPgpE4c",
+      icon: "/app-icons/st.png",
+      blurb: "Agentic trading console for broker sandbox and live.",
+    },
+    {
+      name: "Congress.Trade (iOS)",
+      appName: "Congress.Trade",
+      platform: "iOS",
+      url: "https://testflight.apple.com/join/VNUEU6Ge",
+      icon: "/app-icons/ct.png",
+      blurb: "Capitol Hill STOCK Act disclosures and trade tracker.",
+    },
+    {
+      name: "Usage Client Monitor (iOS)",
+      appName: "Usage Monitor",
+      platform: "iOS",
+      url: "https://testflight.apple.com/join/KPq42UrC",
+      icon: "/app-icons/um.png",
+      blurb: "Mobile dashboard for API costs, credits, and usage.",
+    },
+    {
+      name: "Usage Local Monitor (iOS)",
+      appName: "Usage Monitor",
+      platform: "iOS",
+      url: "https://testflight.apple.com/join/YXZGGeUs",
+      icon: "/app-icons/um.png",
+      blurb: "Local machine usage and daemon metric telemetry.",
+    },
+    {
+      name: "BotFleet (iOS)",
+      appName: "BotFleet",
+      platform: "iOS",
+      url: "https://testflight.apple.com/join/ER6sPNMh",
+      icon: "/app-icons/fleet.png",
+      blurb: "Multi-agent coding fleet status and companion app.",
+    },
+    {
+      name: "BotFleet for Mac",
+      appName: "BotFleet",
+      platform: "macOS",
+      url: "https://testflight.apple.com/join/cQnDtFse",
+      icon: "/app-icons/fleet.png",
+      blurb: "Native macOS agent desktop runner and workspace manager.",
+    },
+  ] as const,
   media: {
     sketchfab:
       "https://sketchfab.com/models/33cd23b2245b422e926b37d2172e3e4e/embed",
