@@ -27,12 +27,13 @@ Protocol: /Users/jay/apps/EFFORT-LOG-PROTOCOL.md (canonical). Live board: this f
 - **2026-08-14 — GROK — COMPLETED — Onboard Personal-Site as a fleet app + About copy "included" (PR #1).**  AGENTS, board, static CI, effort-issues-sync.  Snapshot uses "Earlier work included".  Live Vercel project is not on the fleet MCP team, so production HTML is unchanged.
 
 ## In Progress
-- (none)
+- **2026-09-01 — GROK — IN PROGRESS — Personal-Site stays Datadog-only; no Sentry project (`grok/sentry-datadog-only`).**  Board `ca3e27f0`.  Worktree `~/apps/personal-grok-sentry-docs`.  Explicit README/AGENTS sentence.  Tiny unhandled-window-error Sentry project is not wanted.  Preserve `Earlier work included` and the Doximity `/profiles/…/view` URL.
 
 ## Planned / Reserved
 - (none)
 
 ## Changelog of this log
+- 2026-09-01 — GROK claimed Datadog-only / no Sentry project (board `ca3e27f0`).
 - 2026-08-31 — AG completed TestFlight Public Beta links across all fleet apps on jays.services (branch ag/testflight-links).
 - 2026-08-26 — AG completed PERSONALSITE_DD_* prefixed key support & Infisical secret sync (PR created).
 - 2026-08-26 — AG completed DealDex logo update, CTS acronym, and Vercel production fix (PR #38).

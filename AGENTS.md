@@ -150,12 +150,18 @@ Zone: `jaywedgeworth.com` on Cloudflare account **Usage.Jays.Services**.
 Usage.Jays.Services Global API Key (`CLOUDFLARE_JAY_API_KEY` +
 `mail@jays.services`). Never print those values.
 
-## Datadog (existing account, no new spend)
+## Observability is Datadog (no Sentry project)
 
-Logs + APM + RUM on the existing Datadog org (`us5.datadoghq.com`).  Reuse
-env vars already in the fleet.  Do not invent keys in git.  Production
+This site has **no Sentry project**.  Observability for `jays.services` is
+Datadog (logs, APM, RUM on the existing org `us5.datadoghq.com`).  Do not add
+`@sentry/*`, a DSN, or a tiny unhandled-window-error Sentry project.  Fleet
+Sentry covers the product apps; Personal-Site stays on Datadog.  Canonical:
+`ai-fleet-coordinator` `docs/rollouts/2026-09-01-sentry-fleet-adoption.md`.
+
+Reuse env vars already in the fleet.  Do not invent keys in git.  Production
 (`VERCEL_ENV=production`) and `DD_FAIL_CLOSED=1` fail closed if keys are
-missing.  Do not replace Sentry or PagerDuty.  Do not hide rendered errors.
+missing.  Do not hide rendered errors.  Do not enable Datadog Session Replay
+(and there is no Sentry Replay here either — never run both on the same page).
 
 | Name | Used for |
 |------|----------|
