@@ -2,7 +2,7 @@
 
 - 2026-09-01: Observability is Datadog only.  There is no Sentry project for
   `jays.services`.  A tiny unhandled-window-error Sentry project is not
-  wanted.  Board `ca3e27f0`.  Branch `grok/sentry-datadog-only`.
+  wanted.  Board `ca3e27f0`.  Branch `grok/sentry-datadog-only`.  Merged PS #49.
 - 2026-08-31: Added TestFlight Public Beta links across all fleet apps to jays.services (Socratic Trade, Congress.Trade, Usage Monitor Client/Local, Autorotate iOS/macOS, ContactLogo iOS/macOS, BotFleet iOS/macOS). Added TestFlight badges to project cards and created dedicated TestFlight Public Betas showcase section.
 - 2026-08-26: Add PERSONALSITE_DD_* prefixed key support and sync all app Datadog secrets into the Infisical shared workspace (shared-at-ct).
 - 2026-08-26: DealDex logo updated with official 1024px icon.  Added CTS acronym for Congress Trading Shared fallback.  Fixed Datadog fail-closed throwing on production builds so Vercel Production deploys successfully.
