@@ -74,12 +74,20 @@ export function datadogService(env: DatadogEnv = process.env): string {
   return env.DD_SERVICE?.trim() || env.PERSONALSITE_DD_SERVICE?.trim() || DD_SERVICE_DEFAULT;
 }
 
+export function canonicalizeDatadogEnv(raw: string | undefined): string {
+  const trimmed = (raw ?? "").trim();
+  if (!trimmed) return "";
+  const lower = trimmed.toLowerCase();
+  if (lower === "prod" || lower === "production") return "production";
+  return trimmed;
+}
+
 export function datadogEnvName(env: DatadogEnv = process.env): string {
   return (
-    env.DD_ENV?.trim() ||
-    env.PERSONALSITE_DD_ENV?.trim() ||
-    env.VERCEL_ENV?.trim() ||
-    env.NODE_ENV?.trim() ||
+    canonicalizeDatadogEnv(env.DD_ENV) ||
+    canonicalizeDatadogEnv(env.PERSONALSITE_DD_ENV) ||
+    canonicalizeDatadogEnv(env.VERCEL_ENV) ||
+    canonicalizeDatadogEnv(env.NODE_ENV) ||
     "development"
   );
 }
@@ -94,5 +102,5 @@ export function datadogVersion(env: DatadogEnv = process.env): string {
 }
 
 export function datadogSite(env: DatadogEnv = process.env): string {
-  return readSite(env);
+  return readSite(env) || DD_SITE_EXISTING;
 }
