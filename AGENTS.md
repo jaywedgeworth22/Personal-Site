@@ -188,3 +188,7 @@ into chat. Never run bare `infisical secrets`.
 - Right-size the model: small = mechanical, mid = default implementation,
   frontier = design-heavy / money-path / critical verify only.
 - Canonical: `/Users/jay/apps/AGENT-SYNC.md` — "Delegation & model economics".
+
+## Fleet recall
+
+Search `fleet-agents` before re-deriving a lesson (`recall "<topic>"` or MCP `recall_search`).  Contribute every reusable lesson at closeout (`recall contribute "…" --category lesson --app personal-site`).  Cloud seats: https://agents.jays.services/mcp .  Do not dump chat logs into the corpus.  Canonical: ai-fleet-coordinator/docs/RAG-FLEET-INFRA.md.
