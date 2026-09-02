@@ -63,11 +63,6 @@ export function initDatadogServer(): void {
   }
 
   hookConsoleAndProcess();
-
-  void sendServerLog("info", "Datadog server instrumentation started", {
-    exporter: useAgent ? "agent" : "agentless",
-    service: datadogService(),
-  });
 }
 
 function applyDatadogProcessEnv(): void {
@@ -96,7 +91,7 @@ function hookConsoleAndProcess(): void {
   };
   console.warn = (...args: unknown[]) => {
     originalWarn(...args);
-    void sendServerLog("warn", stringifyArgs(args));
+    // Error-only HTTP intake on Free.  Warn stays local.
   };
 
   process.on("uncaughtException", (error) => {
