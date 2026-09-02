@@ -28,7 +28,8 @@ Protocol: /Users/jay/apps/EFFORT-LOG-PROTOCOL.md (canonical). Live board: this f
 - **2026-08-14 — GROK — COMPLETED — Onboard Personal-Site as a fleet app + About copy "included" (PR #1).**  AGENTS, board, static CI, effort-issues-sync.  Snapshot uses "Earlier work included".  Live Vercel project is not on the fleet MCP team, so production HTML is unchanged.
 
 ## In Progress
-- **2026-09-01 - GROK - IN_PROGRESS - Cap automatic Vercel deploys to one production build per hour (branch `grok/vercel-hourly-cap`, worktree `~/apps/personal-grok-hourly`).**  Board `9051c3ac`.  Script `site/vercel-ignore-hourly.sh`.  `VERCEL_FORCE_DEPLOY=1` still ships immediately.
+- **2026-09-01 - GROK - IN_PROGRESS - Vercel auto-deploys skip unless site files changed, plus 1/hour (branch `grok/vercel-site-watch`, worktree `~/apps/personal-grok-vercel-watch`).**  Board `46837afd`.  Script watches `site/`.
+- **2026-09-01 — GROK — COMPLETED — Cap automatic Vercel deploys to one production build per hour.**  Board `9051c3ac`.  PR #53.  Follow-up is site-file watch on `grok/vercel-site-watch`.
 
 ## Planned / Reserved
 - (none)
