@@ -5,7 +5,6 @@ Protocol: /Users/jay/apps/EFFORT-LOG-PROTOCOL.md (canonical). Live board: this f
 > ⚠️ **AGENT AVAILABILITY NOTICE (2026-08-21):** KIMI is **RETIRED / UNAVAILABLE** long-term (owner directive). All agents MUST NOT assign work or wait on KIMI in-flight work. Reassign any open KIMI effort board lanes or GitHub issues to active seats (AG, GROK, CLAUDE, MONET, etc.).
 
 ## In Progress
-- **2026-09-07 — AG — IN PROGRESS — Update BotFleet app logo (bf.png), remove Socratic Trade TestFlight links, and polish app descriptions (branch `ag/botfleet-logo-app-descriptions`, worktree `~/apps/personal-antigravity`).**
 - [AG] 2026-09-02 — IN PROGRESS — Fix vercel-ignore-hourly watch_args pathspec for site subfolder (branch `ag/vercel-pathspec-fix`, worktree `~/apps/personal-antigravity`). Update watch_args to use :(top)site so git diff correctly detects site changes.
 - **2026-09-01 — GROK — IN PROGRESS — Datadog Free-tier fail-closed: `prod`→`production`, error-only logs, us5 fallback (board `ad678866`, branch `grok/datadog-free-tier`, worktree `~/apps/personal-grok-datadog-free`).**  Rollout: `docs/rollouts/2026-09-01-datadog-free-tier.md`.
 
@@ -19,6 +18,7 @@ Protocol: /Users/jay/apps/EFFORT-LOG-PROTOCOL.md (canonical). Live board: this f
 - **2026-08-14 — GROK — DEPLOYED — Social short-link URL redirects on jaywedgeworth.com.** Cloudflare Single Redirects (301) + dummy proxied `AAAA 100::`.  doximity → view profile (see row above); facebook/fb → Facebook; instagram/ig → Instagram; x → X; linkedin → LinkedIn `/in/JayWedgeworth`.
 
 ## Completed
+- **2026-09-07 — AG — COMPLETED/DEPLOYED — Update BotFleet app logo (bf.png), remove Socratic Trade TestFlight links, and polish app descriptions (PR #65 merged `364dad1`).**  Deployed to production (`dpl_FV5tML6Y5oq1mDyf8hNHFBtZX3Ve`) on `https://jays.services`.  Verified live HTTP 200, `bf.png` 200, ST TestFlight removed, app blurbs refreshed.
 - **2026-09-07 — AG — COMPLETED/DEPLOYED — Fix Vercel auto-deploy rate-limit query (&state=READY) (PR #63 merged `ffa9d90`).**  Added &state=READY filter to `site/vercel-ignore-hourly.sh` and updated Vercel dashboard ignoreCommand fallback to `exit 1`.  Verified live production deployment on `https://jays.services` (HTTP 200).
 - **2026-09-01 — GROK — COMPLETED/MERGED #49 — Personal-Site stays Datadog-only; no Sentry project (`grok/sentry-datadog-only`).**  Board `ca3e27f0`.  Worktree `~/apps/personal-grok-sentry-docs`.  Explicit README/AGENTS sentence.  Tiny unhandled-window-error Sentry project is not wanted.  Preserve `Earlier work included` and the Doximity `/profiles/…/view` URL.  Slack `#agent-sync` post skipped (`account_inactive` / 403).
 - **2026-08-31 — ANTIGRAVITY — COMPLETED — Add TestFlight Public Beta links across all fleet apps (branch `ag/testflight-links`).**  Added TestFlight badges to project cards and created dedicated TestFlight Public Betas showcase section on `jays.services` for all 10 fleet app beta streams (ContactLogo iOS/macOS, Autorotate iOS/macOS, Socratic Trade iOS, Congress.Trade iOS, Usage Monitor Client/Local, BotFleet iOS/macOS).
@@ -41,6 +41,7 @@ Protocol: /Users/jay/apps/EFFORT-LOG-PROTOCOL.md (canonical). Live board: this f
 - (none)
 
 ## Changelog of this log
+- 2026-09-07 — AG completed and deployed BotFleet logo update, ST TestFlight removal, and refreshed app blurbs (PR #65 merged `364dad1`, dpl_FV5tML6Y5oq1mDyf8hNHFBtZX3Ve).
 - 2026-09-01 — GROK completed Datadog-only / no Sentry project (PS #49, board `ca3e27f0`).
 - 2026-08-31 — AG completed TestFlight Public Beta links across all fleet apps on jays.services (branch ag/testflight-links).
 - 2026-08-26 — AG completed PERSONALSITE_DD_* prefixed key support & Infisical secret sync (PR created).
