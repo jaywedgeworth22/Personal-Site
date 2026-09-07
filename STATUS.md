@@ -1,5 +1,6 @@
 # Status
 
+- 2026-09-07: Updated BotFleet app logo with official 1024px icon (bf.png), removed Socratic Trade iOS TestFlight links from project card and beta grid, polished all app blurbs with domain hyperlinks and tighter summaries, and fixed prefer-const in fleet-digest.ts.
 - 2026-09-01: Observability is Datadog only.  There is no Sentry project for
   `jays.services`.  A tiny unhandled-window-error Sentry project is not
   wanted.  Board `ca3e27f0`.  Branch `grok/sentry-datadog-only`.  Merged PS #49.
