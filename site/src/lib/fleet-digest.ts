@@ -86,7 +86,7 @@ function parseItem(line: string): DigestItem | null {
   const repo = REPO_MAP[repoKey] ?? REPO_MAP[repoMatch?.[1] ?? ""] ?? "other";
 
   // Monet / Renoir / Fable collapse to Claude on personal site badges too
-  let agentMatch = raw.match(/`(Monet|Renoir|Fable|Claude|Grok|Codex|Cursor|AG|Gemini)[^`]*`/i);
+  const agentMatch = raw.match(/`(Monet|Renoir|Fable|Claude|Grok|Codex|Cursor|AG|Gemini)[^`]*`/i);
   let agent = agentMatch?.[1];
   if (agent && /^(monet|renoir|fable)$/i.test(agent)) {
     agent = "Claude";

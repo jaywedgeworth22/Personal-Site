@@ -54,20 +54,17 @@ export const site = {
       key: "st",
       name: "Socratic Trade",
       blurb:
-        "Agentic trading console for Alpaca, Tradier, and Robinhood — real broker paper/sandbox and live accounts.  Live at SocraticTrade.com, plus iOS.",
+        "Agentic trading console connecting Alpaca, Tradier, and Robinhood with automated risk controls and broker sandbox/live execution.  Live at SocraticTrade.com.",
       href: "https://github.com/jaywedgeworth22/Socratic.Trade",
-      tags: ["TypeScript", "Agents", "Markets", "iOS"],
+      tags: ["TypeScript", "Agents", "Markets", "Trading"],
       icon: "/app-icons/st.png",
       acronym: "ST",
-      testflight: [
-        { platform: "iOS", url: "https://testflight.apple.com/join/nUPgpE4c" },
-      ],
     },
     {
       key: "ct",
       name: "Congress.Trade",
       blurb:
-        "Public STOCK Act disclosures from the House, Senate, and Executive Branch.  Live at Congress.Trade, plus iOS.",
+        "Capitol Hill STOCK Act disclosures and trade tracker for the House, Senate, and Executive Branch.  Live at Congress.Trade, plus iOS.",
       href: "https://github.com/jaywedgeworth22/Congress.Trade",
       tags: ["Markets", "Data", "Web", "iOS"],
       icon: "/app-icons/ct.png",
@@ -80,7 +77,7 @@ export const site = {
       key: "um",
       name: "Usage Monitor",
       blurb:
-        "Tracks API usage, balances, credits, and costs via poller snapshots and OTLP metrics.  Live at usage.jays.services, plus iOS.",
+        "Centralized cost governance and usage telemetry tracking LLM API balances, credits, and spend via OTLP metrics.  Live at usage.jays.services, plus iOS.",
       href: "https://github.com/jaywedgeworth22/Usage-Monitor",
       tags: ["Ops", "Billing", "Dashboard", "iOS"],
       icon: "/app-icons/um.png",
@@ -94,7 +91,7 @@ export const site = {
       key: "dd",
       name: "DealDex.net",
       blurb:
-        "Pokémon listing desk scoring eBay and Mercari Buy It Now singles against TCGPlayer and other marketplaces.  Native Android and iOS, web at DealDex.net.",
+        "Real-time collectible card arbitrage desk scoring eBay and Mercari listings against TCGPlayer market values.  Native Android, iOS, and DealDex.net.",
       href: "https://github.com/jaywedgeworth22/DealDex",
       tags: ["Markets", "Android", "iOS", "Web"],
       icon: "/app-icons/dd.png",
@@ -104,7 +101,7 @@ export const site = {
       key: "ar",
       name: "Autorotate.Codes",
       blurb:
-        "Zero-plaintext multi-platform secret rotation and credential lifecycle across web, iOS, macOS, and Android.  Web at Autorotate.Codes.",
+        "Zero-plaintext secret lifecycle management and automated credential rotation across cloud providers and devices.  Live at Autorotate.Codes, plus iOS and macOS.",
       href: "https://github.com/jaywedgeworth22/Autorotate",
       tags: ["Security", "macOS", "iOS", "Crypto"],
       icon: "/app-icons/ar.png",
@@ -118,7 +115,7 @@ export const site = {
       key: "cl",
       name: "ContactLogo",
       blurb:
-        "Brand icons for your address book with review-first logo matching.  Native macOS, iOS, Android, and web at ContactLogo.com.",
+        "Curated high-resolution brand icons for your address book with review-first logo matching.  Native macOS, iOS, Android, and ContactLogo.com.",
       href: "https://github.com/jaywedgeworth22/ContactLogo",
       tags: ["macOS", "iOS", "Android", "Web"],
       icon: "/app-icons/cl.png",
@@ -132,7 +129,7 @@ export const site = {
       key: "ps",
       name: "Personal Site",
       blurb:
-        "Personal portfolio site and live agent activity surface at jays.services.",
+        "Personal portfolio site, live multi-agent fleet activity surface, and TestFlight beta hub at jays.services.",
       href: "https://github.com/jaywedgeworth22/Personal-Site",
       tags: ["TypeScript", "Vite", "Web"],
       icon: "/app-icons/ps.png",
@@ -142,7 +139,7 @@ export const site = {
       key: "shared",
       name: "congress-trading-shared",
       blurb:
-        "Shared TypeScript contracts, Zod schemas, constants, and utilities for cross-app integration (shared dependency).",
+        "Shared TypeScript contracts, Zod schemas, domain constants, and cross-app utilities powering the fleet ecosystem.",
       href: "https://github.com/jaywedgeworth22/congress-trading-shared",
       tags: ["TypeScript", "Zod", "Cross-App", "Package"],
       acronym: "CTS",
@@ -151,7 +148,7 @@ export const site = {
       key: "fleet",
       name: "AI Fleet Coordinator",
       blurb:
-        "Mac-hosted multi-agent coding fleet coordination: live board at mac.jays.services, Slack #agent-sync, daily activity digests at activity.jays.services.",
+        "Mac-hosted multi-agent coding fleet orchestration: live board at mac.jays.services, Slack #agent-sync, and activity digests at activity.jays.services.",
       href: "https://github.com/jaywedgeworth22/ai-fleet-coordinator",
       tags: ["Agents", "CI", "Ops"],
       icon: "/app-icons/fleet.png",
@@ -161,10 +158,10 @@ export const site = {
       key: "bf",
       name: "BotFleet.app",
       blurb:
-        "Agent desktop companion and local runtime manager.  Native macOS and iOS.",
+        "Multi-agent desktop environment and autonomous execution runtime for macOS and iOS.  Live at BotFleet.app, with local and cloud computer control.",
       href: "https://github.com/jaywedgeworth22/BotFleet",
       tags: ["macOS", "iOS", "Agents"],
-      icon: "/app-icons/fleet.png",
+      icon: "/app-icons/bf.png",
       acronym: "BF",
       testflight: [
         { platform: "iOS", url: "https://testflight.apple.com/join/ER6sPNMh" },
@@ -175,7 +172,7 @@ export const site = {
       key: "ops",
       name: "Fleet Ops",
       blurb:
-        "Private fleet infrastructure operations, host inventory, and service orchestration.",
+        "Private fleet infrastructure operations, bare-metal host provisioning, and distributed service orchestration across the fleet.",
       href: "https://github.com/jaywedgeworth22/fleet-ops",
       tags: ["Ops", "Infra"],
       acronym: "OPS",
@@ -191,7 +188,7 @@ export const site = {
     PS: "/app-icons/ps.png",
     CTS: "/app-icons/fleet.png",
     AFC: "/app-icons/fleet.png",
-    BF: "/app-icons/fleet.png",
+    BF: "/app-icons/bf.png",
     OPS: "/app-icons/fleet.png",
     fleet: "/app-icons/fleet.png",
   } as const,
@@ -229,14 +226,6 @@ export const site = {
       blurb: "Native macOS secret manager and rotation client.",
     },
     {
-      name: "Socratic Trade (iOS)",
-      appName: "Socratic Trade",
-      platform: "iOS",
-      url: "https://testflight.apple.com/join/nUPgpE4c",
-      icon: "/app-icons/st.png",
-      blurb: "Agentic trading console for broker sandbox and live.",
-    },
-    {
       name: "Congress.Trade (iOS)",
       appName: "Congress.Trade",
       platform: "iOS",
@@ -265,16 +254,16 @@ export const site = {
       appName: "BotFleet",
       platform: "iOS",
       url: "https://testflight.apple.com/join/ER6sPNMh",
-      icon: "/app-icons/fleet.png",
-      blurb: "Multi-agent coding fleet status and companion app.",
+      icon: "/app-icons/bf.png",
+      blurb: "Mobile companion for BotFleet agent orchestration and live thread interaction.",
     },
     {
       name: "BotFleet for Mac",
       appName: "BotFleet",
       platform: "macOS",
       url: "https://testflight.apple.com/join/cQnDtFse",
-      icon: "/app-icons/fleet.png",
-      blurb: "Native macOS agent desktop runner and workspace manager.",
+      icon: "/app-icons/bf.png",
+      blurb: "Native macOS desktop runtime, computer control, and agent workspace environment.",
     },
   ] as const,
   media: {
