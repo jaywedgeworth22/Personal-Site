@@ -1,6 +1,7 @@
 import { HeadContent, Outlet, Scripts, createRootRoute } from "@tanstack/react-router";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import { useState } from "react";
 import { CreatedWithGrokBanner } from "@/components/created-with-grok-banner";
 import { SiteHeader } from "@/components/site-header";
@@ -91,6 +92,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       <body className="min-h-dvh bg-bg font-sans text-fg antialiased">
         {children}
         <Analytics />
+        <SpeedInsights />
         <Scripts />
       </body>
     </html>
