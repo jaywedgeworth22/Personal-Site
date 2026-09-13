@@ -1,5 +1,6 @@
 # Status
 
+- 2026-09-13: Stopped advertising Autorotate.Codes as a live host (NXDOMAIN).  Project card and digest now say Autorotate; TestFlight row is Autorotate (iOS).  Added Hog Hunter as a local-only Mac utility.  Apex `jays.services` is Vercel behind Cloudflare (`216.198.79.1`), not the historical `64.239.109.1`.  Board `56fea494`.  Branch `fx/dead-links-hoghunter`.  GitHub merge does not auto-publish this site.
 - 2026-09-07: Updated BotFleet app logo with official 1024px icon (bf.png), removed Socratic Trade iOS TestFlight links from project card and beta grid, polished all app blurbs with domain hyperlinks and tighter summaries, and fixed prefer-const in fleet-digest.ts.  Merged PR #65 (commit `364dad1`) and deployed to Vercel production (`dpl_FV5tML6Y5oq1mDyf8hNHFBtZX3Ve` on `https://jays.services`).
 - 2026-09-01: Observability is Datadog only.  There is no Sentry project for
   `jays.services`.  A tiny unhandled-window-error Sentry project is not
@@ -15,6 +16,6 @@
   in production if `DD_API_KEY` / `DD_SITE` / `DD_APPLICATION_ID` /
   `DD_CLIENT_TOKEN` are missing.  Replay off.  No Sentry project.
 - 2026-08-22: Vercel Web Analytics — `@vercel/analytics` mounted in TanStack Start root (`@vercel/analytics/react`, not `/next`).  Counts after production deploy + visit.
-- 2026-08-22: GitHub `main` synced.  Personal Vercel Hobby project `personal-site` (`jayw`) production READY at https://personal-site-jayw.vercel.app/ (About copy + Doximity view URL verified).  Apex `jays.services` still Cloudflare A `64.239.109.1` until domain cutover.  Drive backups: coordinator launchd + GHA artifacts.  Hobby usage is negligible.
+- 2026-08-22: GitHub `main` synced.  Personal Vercel Hobby project `personal-site` (`jayw`) production READY at https://personal-site-jayw.vercel.app/ (About copy + Doximity view URL verified).  Apex `jays.services` cutover to Vercel behind Cloudflare is done (see 2026-09-13).  Drive backups: coordinator launchd + GHA artifacts.  Hobby usage is negligible.
 - 2026-08-20: Public work list copy matches current apps.  Socratic Trade is production at socratictrade.com (Coolify), from that README.  Congress.Trade names congress.trade.  DealDex and ContactLogo cards added from their live repo copy.
 - GitHub repo About sidebar still says "automatic snapshot".  This seat cannot edit that field (read-only `gh`).

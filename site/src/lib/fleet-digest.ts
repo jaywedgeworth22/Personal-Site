@@ -184,7 +184,7 @@ export function repoLabel(code: RepoCode): string {
     case "DD":
       return "DealDex.net";
     case "AR":
-      return "Autorotate.Codes";
+      return "Autorotate";
     case "CL":
       return "ContactLogo";
     case "PS":
