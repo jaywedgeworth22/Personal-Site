@@ -1,5 +1,6 @@
 # Status
 
+- 2026-09-13: Vercel production deploys only when `site/` changed, at most once per hour.  Previews skipped.  Stops agent spam of empty Hobby builds.  Board `0934111e`.  Branch `fx/vercel-skip-pointless`.
 - 2026-09-13: Merge to `main` is Vercel production.  `vercel-ignore-hourly.sh` only skips preview auto-deploys (owner: sites go live on merge).  Board `ef71d6c1`.  Branch `fx/merge-equals-live`.
 - 2026-09-13: Stopped advertising Autorotate.Codes as a live host (NXDOMAIN).  Project card and digest now say Autorotate; TestFlight row is Autorotate (iOS).  Added Hog Hunter as a local-only Mac utility.  Apex `jays.services` is Vercel behind Cloudflare.  Board `56fea494`.  Branch `fx/dead-links-hoghunter`.
 - 2026-09-07: Updated BotFleet app logo with official 1024px icon (bf.png), removed Socratic Trade iOS TestFlight links from project card and beta grid, polished all app blurbs with domain hyperlinks and tighter summaries, and fixed prefer-const in fleet-digest.ts.  Merged PR #65 (commit `364dad1`) and deployed to Vercel production (`dpl_FV5tML6Y5oq1mDyf8hNHFBtZX3Ve` on `https://jays.services`).
