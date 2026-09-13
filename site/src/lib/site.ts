@@ -99,9 +99,9 @@ export const site = {
     },
     {
       key: "ar",
-      name: "Autorotate.Codes",
+      name: "Autorotate",
       blurb:
-        "Zero-plaintext secret lifecycle management and automated credential rotation across cloud providers and devices.  Live at Autorotate.Codes, plus iOS and macOS.",
+        "Zero-plaintext secret lifecycle management and automated credential rotation across cloud providers and devices.  Native iOS and macOS companions; the public web host is not live yet.",
       href: "https://github.com/jaywedgeworth22/Autorotate",
       tags: ["Security", "macOS", "iOS", "Crypto"],
       icon: "/app-icons/ar.png",
@@ -153,6 +153,15 @@ export const site = {
       tags: ["Agents", "CI", "Ops"],
       icon: "/app-icons/fleet.png",
       acronym: "AFC",
+    },
+    {
+      key: "hh",
+      name: "Hog Hunter",
+      blurb:
+        "Mac menu bar utility that names the processes and apps eating CPU and memory now, over the past hour, and over the past 24 hours.  Local only — not App Store or TestFlight.",
+      href: "https://github.com/jaywedgeworth22/HogHunter",
+      tags: ["macOS"],
+      acronym: "HH",
     },
     {
       key: "bf",
@@ -210,7 +219,7 @@ export const site = {
       blurb: "Native macOS menu bar and batch contact logo updater.",
     },
     {
-      name: "Autorotate.Codes (iOS)",
+      name: "Autorotate (iOS)",
       appName: "Autorotate",
       platform: "iOS",
       url: "https://testflight.apple.com/join/bZ7vntkJ",

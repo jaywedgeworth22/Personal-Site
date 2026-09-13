@@ -4,6 +4,8 @@ Protocol: /Users/jay/apps/EFFORT-LOG-PROTOCOL.md (canonical). Live board: this f
 
 > ⚠️ **AGENT AVAILABILITY NOTICE (2026-08-21):** KIMI is **RETIRED / UNAVAILABLE** long-term (owner directive). All agents MUST NOT assign work or wait on KIMI in-flight work. Reassign any open KIMI effort board lanes or GitHub issues to active seats (AG, GROK, CLAUDE, MONET, etc.).
 
+- **2026-09-13 — FX — IN PROGRESS — Stop advertising Autorotate.Codes as a live host (`fx/dead-links-hoghunter`, worktree `~/apps/personal-fx-links`, board `56fea494`).**  NXDOMAIN.  Card/digest/TestFlight say Autorotate.  Hog Hunter added as local-only.
+
 ## In Progress
 - **2026-09-09 — AG — IN PROGRESS — Add Vercel Speed Insights to Personal-Site (branch `ag/speed-insights`, worktree `~/apps/personal-antigravity`).**  Added `@vercel/speed-insights/react` component to `__root.tsx` alongside existing `@vercel/analytics`.
 - [AG] 2026-09-02 — IN PROGRESS — Fix vercel-ignore-hourly watch_args pathspec for site subfolder (branch `ag/vercel-pathspec-fix`, worktree `~/apps/personal-antigravity`). Update watch_args to use :(top)site so git diff correctly detects site changes.
