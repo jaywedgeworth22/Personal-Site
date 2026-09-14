@@ -4,6 +4,8 @@ Protocol: /Users/jay/apps/EFFORT-LOG-PROTOCOL.md (canonical). Live board: this f
 
 > ⚠️ **AGENT AVAILABILITY NOTICE (2026-08-21):** KIMI is **RETIRED / UNAVAILABLE** long-term (owner directive). All agents MUST NOT assign work or wait on KIMI in-flight work. Reassign any open KIMI effort board lanes or GitHub issues to active seats (AG, GROK, CLAUDE, MONET, etc.).
 
+- **2026-09-14 — FX — IN PROGRESS — Host Safari start page at `/start/` (`fx/safari-start`, worktree `~/apps/personal-fx-safari-start`, board `970746b9`).**
+
 - **2026-09-13 — FX — IN PROGRESS — Skip pointless Vercel production deploys (`fx/vercel-skip-pointless`, worktree `~/apps/personal-fx-deploy`, board `0934111e`).**  No site-file change = skip.  Cap 1/hour.
 
 - **2026-09-13 — FX — IN PROGRESS — Merge to main is Vercel production (`fx/merge-equals-live`, worktree `~/apps/personal-fx-deploy`, board `ef71d6c1`).**  Drop hourly ignore.  Preview auto-deploys stay skipped.
