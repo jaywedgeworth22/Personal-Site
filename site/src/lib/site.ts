@@ -57,7 +57,7 @@ export const site = {
         "Agentic trading console connecting Alpaca, Tradier, and Robinhood with automated risk controls and broker sandbox/live execution.  Live at SocraticTrade.com.",
       href: "https://github.com/jaywedgeworth22/Socratic.Trade",
       tags: ["TypeScript", "Agents", "Markets", "Trading"],
-      icon: "/app-icons/st.png",
+      icon: "/app-icons/st.svg",
       acronym: "ST",
     },
     {
@@ -188,7 +188,7 @@ export const site = {
     },
   ] satisfies Project[],
   appIcons: {
-    ST: "/app-icons/st.png",
+    ST: "/app-icons/st.svg",
     CT: "/app-icons/ct.png",
     UM: "/app-icons/um.png",
     DD: "/app-icons/dd.png",
