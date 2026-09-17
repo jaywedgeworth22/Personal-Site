@@ -1,5 +1,6 @@
 # Status
 
+- 2026-09-17: Vercel Speed Insights is already on `main` (PR #70 squash `9c56966`, board `87efa14b`).  `@vercel/speed-insights/react` in `__root.tsx`.  Live `/_vercel/speed-insights/script.js` HTTP 200.  vercel-ignore-hourly `:(top)` pathspec is PR #61 (`1dd093f`, board `298e80ed`).  No duplicate Speed Insights PR.
 - 2026-09-14: Host Claude's Safari start page at `/start/` for iPhone Add to Home Screen.  Source of truth is AFC `scripts/safari-start`.  Board `970746b9`.  Branch `fx/safari-start`.
 - 2026-09-13: Vercel production deploys only when `site/` changed, at most once per hour.  Previews skipped.  Stops agent spam of empty Hobby builds.  Board `0934111e`.  Branch `fx/vercel-skip-pointless`.
 - 2026-09-13: Merge to `main` is Vercel production.  `vercel-ignore-hourly.sh` only skips preview auto-deploys (owner: sites go live on merge).  Board `ef71d6c1`.  Branch `fx/merge-equals-live`.
