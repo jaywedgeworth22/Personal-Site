@@ -10,6 +10,10 @@ export type RepoCode =
   | "AFC"
   | "BF"
   | "OPS"
+  | "CC"
+  | "MM"
+  | "HH"
+  | "HR"
   | "shared"
   | "fleet"
   | "other";
@@ -52,6 +56,14 @@ const REPO_MAP: Record<string, RepoCode> = {
   AFL: "AFC",
   BF: "BF",
   OPS: "OPS",
+  CC: "CC",
+  MM: "MM",
+  HH: "HH",
+  HR: "HR",
+  CODECAPS: "CC",
+  MINIMAX: "MM",
+  HOGHUNTER: "HH",
+  HARNESS: "HR",
   shared: "CTS",
   fleet: "AFC",
   SHARED: "CTS",
@@ -81,19 +93,32 @@ function parseItem(line: string): DigestItem | null {
   const href = linkMatch?.[2];
   const num = linkMatch?.[1];
 
-  const repoMatch = raw.match(/\*\*(ST|CT|UM|DD|AR|CL|PS|CTS|AFC|AFL|BF|OPS|shared|fleet|SHARED|FLEET)\*\*/i);
+  const repoMatch = raw.match(
+    /\*\*(ST|CT|UM|DD|AR|CL|PS|CTS|AFC|AFL|BF|OPS|CC|MM|HH|HR|CODECAPS|MINIMAX|HOGHUNTER|HARNESS|shared|fleet|SHARED|FLEET)\*\*/i,
+  );
   const repoKey = repoMatch?.[1]?.toUpperCase() ?? "other";
   const repo = REPO_MAP[repoKey] ?? REPO_MAP[repoMatch?.[1] ?? ""] ?? "other";
 
   // Monet / Renoir / Fable collapse to Claude on personal site badges too
-  const agentMatch = raw.match(/`(Monet|Renoir|Fable|Claude|Grok|Codex|Cursor|AG|Gemini)[^`]*`/i);
+  const agentMatch = raw.match(
+    /`(Monet|Renoir|Fable|Claude|Grok|Grok Bot|Codex|Cursor|AG|Gemini|Kimi|DeepSeek|DSH|MiniMax|MM|Muse|Sentry)[^`]*`/i,
+  );
   let agent = agentMatch?.[1];
   if (agent && /^(monet|renoir|fable)$/i.test(agent)) {
     agent = "Claude";
+  } else if (agent && /^(mm|minimax)$/i.test(agent)) {
+    agent = "MiniMax";
+  } else if (agent && /^(dsh|deepseek)$/i.test(agent)) {
+    agent = "DeepSeek";
+  } else if (agent && /^(ag|gemini)$/i.test(agent)) {
+    agent = "Antigravity";
   }
 
   let title = raw
-    .replace(/\*\*(ST|CT|UM|DD|AR|CL|PS|CTS|AFC|AFL|BF|OPS|shared|fleet|SHARED|FLEET)\*\*/i, "")
+    .replace(
+      /\*\*(ST|CT|UM|DD|AR|CL|PS|CTS|AFC|AFL|BF|OPS|CC|MM|HH|HR|CODECAPS|MINIMAX|HOGHUNTER|HARNESS|shared|fleet|SHARED|FLEET)\*\*/i,
+      "",
+    )
     .replace(/`[^`]+`/g, "")
     .replace(/\[#\d+\]\([^)]+\)/g, num ? `#${num}` : "")
     .replace(/_\(by [^)]+\)_/g, "")
@@ -199,6 +224,14 @@ export function repoLabel(code: RepoCode): string {
       return "BotFleet.app";
     case "OPS":
       return "Fleet Ops";
+    case "CC":
+      return "CodeCaps";
+    case "MM":
+      return "MiniMax Remote";
+    case "HH":
+      return "Hog Hunter";
+    case "HR":
+      return "Harness";
     default:
       return "Repo";
   }
