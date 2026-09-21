@@ -40,4 +40,4 @@ npm run dev
 
 ## License
 
-Private. All rights reserved.
+Apache License 2.0.
