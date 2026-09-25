@@ -94,8 +94,8 @@ print(deps[0]['created'] if deps else 0)" 2>/dev/null || echo 0)
   now_ms=$(python3 -c "import time; print(int(time.time()*1000))")
   if [[ "$created" =~ ^[0-9]+$ ]] && [[ "$created" -gt 0 ]]; then
     age=$(( (now_ms - created) / 1000 ))
-    if [[ "$age" -lt 3600 ]]; then
-      echo "skip production: last deploy ${age}s ago (cap 1/hour)"
+    if [[ "$age" -lt 10800 ]]; then
+      echo "skip production: last deploy ${age}s ago (cap 3/hour)"
       exit 0
     fi
   fi
