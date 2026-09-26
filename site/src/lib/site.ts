@@ -47,6 +47,7 @@ export const site = {
     { id: "instagram", label: "Instagram", href: "https://instagram.com/JayWedgeworth" },
     { id: "x", label: "X", href: "https://twitter.com/JayWedgeworth" },
     { id: "youtube", label: "YouTube", href: "https://www.youtube.com/spaceport3d" },
+    { id: "simplewithus", label: "Simple With Us", href: "https://simplewithus.com" },
     { id: "email", label: "Email", href: "mailto:mail@jays.services" },
   ],
   projects: [
@@ -103,7 +104,7 @@ export const site = {
       blurb:
         "Zero-plaintext secret lifecycle management and automated credential rotation across cloud providers and devices.  Native iOS and macOS companions; the public web host is not live yet.",
       href: "https://github.com/jaywedgeworth22/Autorotate",
-      tags: ["Security", "macOS", "iOS", "Crypto"],
+      tags: ["Security", "macOS", "iOS"],
       icon: "/app-icons/ar.png",
       acronym: "AR",
       testflight: [
@@ -178,7 +179,7 @@ export const site = {
       key: "mm",
       name: "MiniMax Remote",
       blurb:
-        "Native iOS mobile companion and remote monitor for MiniMax AI coding plans, model quotas, and agent telemetry.",
+        "Native iOS TestFlight companion for MiniMax Code: chat, sessions, scheduled tasks, agents, and Drive, all from your phone.  Pairs to your Mac via QR code.",
       href: "https://github.com/jaywedgeworth22/MiniMax-ios",
       tags: ["iOS", "MiniMax", "Agents"],
       icon: "/app-icons/mm.png",
